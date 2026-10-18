@@ -4,6 +4,7 @@ body {
     background-color: #faeddf;
 }
 
+/* Starting from here, CSS for navigation bar */
 .navbar ul{
 
     list-style-type: none;
@@ -22,7 +23,6 @@ body {
     margin-left: 20px;
 }
 
-
 .navbar a{
 
     color: black;
@@ -36,6 +36,8 @@ body {
 .navbar a:hover {
     color: grey;
 }
+
+/*navigation style sheet ends here*/
 
 video {
     margin-top: 50px;
