@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #faeddf;
+}
+
+.navbar ul{
+
+    list-style-type: none;
+    background-color: #aa7a52;
+    padding: 0px;
+    margin: 0px;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+
+    width: 130px;
+    height: auto;
+    margin-left: 20px;
+}
+
+
+.navbar a{
+
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    margin: 20px;
+    display: block;
+    text-align: center;
+}
+
+.navbar a:hover {
+    color: grey;
+}
+
+video {
+    margin-top: 50px;
+    margin-left: 6px;
+    width: 71.8%;
+    height: auto;
+}
+
+img {
+
+    margin-left: 10;
+}
