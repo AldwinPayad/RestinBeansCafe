@@ -11,26 +11,32 @@ body {
     background-color: #aa7a52;
     padding: 0px;
     margin: 0px;
-    font-size: 40px;
+    font-size: 48px;
     display: flex;
     align-items: center;
+    border-bottom: 2px solid black;
 }
 
 .logo {
 
-    width: 130px;
+    width: 3em;
     height: auto;
-    margin-left: 20px;
+    margin-left: 1.5em;
+    padding-inline: 1em;
+    cursor: pointer;
 }
 
 .navbar a{
 
     color: black;
+    font-family: "Libre-Baskerville";
     text-decoration: none;
-    padding: 10px;
+    padding: 5px;
     margin: 20px;
     display: block;
     text-align: center;
+    user-select: none;
+    cursor: pointer;
 }
 
 .navbar a:hover {
@@ -39,14 +45,102 @@ body {
 
 /*navigation style sheet ends here*/
 
-video {
-    margin-top: 50px;
-    margin-left: 6px;
-    width: 71.8%;
-    height: auto;
+
+/*video & img banner*/
+
+.banner {
+    display: grid;
+    grid-template-columns: 3.5fr 1fr;
+    margin: 2em;
+    border: 4px solid black;
 }
 
-img {
-
-    margin-left: 10;
+.oval {
+  height: 50px;
+  width: 175px;
+  background-color: #aa7a52;
+  border-radius: 33%;
 }
+
+.oval_h2 {
+    margin-left: 10px;
+    margin-top: 60px;
+}
+.video_overlay {
+    margin-top: 400px;
+    position: absolute;
+}
+
+.banner_video {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    border-right: 4px solid black;
+}
+
+.banner_video video {
+  width: 100%;
+  height: 575px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+
+.banner_image {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.banner_image img {
+  width: 100%;
+  height: 575px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/*best seller*/
+
+.highlighter1 {
+    background-color: purple;
+    height: 200px;
+    width: auto;
+    margin-inline: 20rem;
+
+}
+
+.bestseller {
+    display: grid;
+    grid-template-rows: 2fr 2fr;
+    margin-top: 10rem;
+}
+
+.bestseller h1 {
+    font-size: 5em;
+    margin-left: 1em;
+}
+
+/*product showcase*/
+
+.product_showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.product_cookies {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.product_cookies img {
+
+    width: auto;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
