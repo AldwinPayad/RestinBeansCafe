@@ -14,7 +14,6 @@ body {
 
 .main {
     grid-area: main;
-
 }
 /* google fonts  */
 
@@ -40,7 +39,6 @@ body {
 }
 
 .logo {
-
     width: 3.7em;
     height: auto;
     margin-left: 0.5rem;
@@ -61,7 +59,7 @@ body {
 
     font-family: "Libre Baskerville", serif;
     font-optical-sizing: auto;
-    font-weight: <weight>;
+    font-weight: 40;
     font-style: normal
 }
 
@@ -156,30 +154,60 @@ body {
     border-radius: 100px;
 
     height: 40rem;
-     padding: 2rem ;
-   margin-bottom: 10rem;
+    width: 100rem;
+    padding: 2rem ;
+    margin-bottom: 10rem;
    
-
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
    border: 2px solid black;
-    align-items: center;
+    
+}
+
+.carousel {
+    display: flex;
+    flex-direction: row;
     gap: 8rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.card_button{
+    display: flex;
+    justify-items: center;
+    place-items: center;
+    align-items: center;
+}
+
+.card_button button{
+    border-radius: 50%;
+    height: 1rem;
+    width: 1rem;
+    
 }
 
 .ProductCard {
 
     background-color: orange;
     border-radius: 50px;
-    height: 400px;
-    width: 250px;
+    height: 37rem;
+    width: 28rem;
 
 }
 
 /*product showcase*/
 
+.product_heading {
+    font-family: "Cinzel Decorative", serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 2rem;
+  text-align: center;
+}
+
 .product_showcase {
     display: grid;
+    background-color: #faeddf;
 }
 
 .product_area {
@@ -187,34 +215,110 @@ body {
     flex-direction: row;
     justify-content: center;
     margin-top: 4rem;
+    margin-bottom: 20rem;
+    margin-inline: 10rem;
+    gap: 5rem;
 }
 
-.product_cookies {
-    background-color: green;
-    padding: 15rem;
+.productshowcase1 {
+    height: 30rem;
+    width: auto;
 }
 
-.product_cookietext {
-    background-color: purple;
-    padding: 15rem;
+.product_description {
+    font-size: 2rem;
 }
+
+.button_area {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10rem;
+}
+
+.button {
+    border: 2px solid black;
+    border-radius: 2rem;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+
 
 /*footer*/
 
 footer {
-    background-color: grey;
+    background-color: #a9886c;
+    display: flex;
+    justify-content: center;
     grid-area: footer;
-    display: grid;
+}
+
+.footer_list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.footer_list li{
+   margin-bottom: 20px;
+}
+
+.footer_list a, a:visited, a:active, a:focus{
+   color: rgb(48, 48, 48);
+}
+
+.footer_list a:hover{
+   color: rgb(122, 121, 121);
+   cursor: pointer;
+}
+
+.footer_heading {
+    font-size: 60px;
+    font-family: "Abril Fatface", serif;
+    font-weight: 1px;
+    font-style: normal;
+    margin-bottom: 3rme;
+}
+
+.footer_area {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+
 }
 
 .footer_section1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 5rem;
+}
+
+.footer_logo {
+    height: 15rem;
+    width: auto;
+}
+
+.footer_socmed {
+    height: 3rem;
+    width: auto;
+}
+
+.footer_socmed img:hover{
+    cursor: pointer;
+}
+
+.socmed_area {
+    display: flex;
+    gap: 4rem;
 
 }
 
 .footer_section2 {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
 
-}
-
-.footer_section13 {
-    
 }
