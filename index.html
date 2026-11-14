@@ -4,6 +4,7 @@
 <title>Rest in Beans</title>
 <link rel="stylesheet" href="style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <script src="index.js" defer></script>
 
 <!-- google fonts, for libre baskerville -->
 
@@ -64,33 +65,23 @@
             <div class="selector"> 
 
                 <div class="carousel">
-
-                    <div class="button_carousel">
-                        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-                        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+                
+                    <div class="carousel-track">
+                    <div class="ProductCard"><img src="images/bestsellers/item1.png"></div>
+                    <div class="ProductCard"><img src="images/bestsellers/item2.png"></div>
+                    <div class="ProductCard"><img src="images/bestsellers/item3.png"></div>
+                    <div class="ProductCard"><img src="images/bestsellers/item4.png"></div>
+                    <div class="ProductCard"><img src="images/bestsellers/item5.png"></div>
+                    <div class="ProductCard"><img src="images/bestsellers/item6.png"></div>
                     </div>
-                    
-
-                     <div class="ProductCard">
-                     <img src="images/banner1.png">
-                     </div>
-
-                     <div class="ProductCard">
-                      <img>
-                     </div>
-                    
-                      <div class="ProductCard">
-                      <img>
-                      </div>
                 </div>
 
-                <div class="card_button">
-                    <button></button>
-                </div>
                
             </div>
-
-            
+             <div class="button_carousel">
+                        <button class="prev">&#10094;</button>
+                        <button class="next">&#10095;</button>
+                </div>
         </div>
 
         
@@ -108,8 +99,7 @@
                     
                     <div>
                         <p class="product_description">Explore our selections of pastries. 
-                        Enjoy the <br> sweet and warm taste of our freshly baked
-                        <br> goods </p>
+                        Enjoy the  sweet and warm taste of our freshly baked goods </p>
                     </div>
 
                     <div class="button_area">
@@ -126,9 +116,7 @@
                     <div  class="product_heading"><h1>SNACKS</h1></div>
                     
                     <div>
-                        <p class="product_description">Explore our selections of pastries. 
-                        Enjoy the <br> sweet and warm taste of our freshly baked
-                        <br> goods </p>
+                        <p class="product_description"> Explore a variety of snacks alongside your morning coffee.  </p>
                     </div>
 
                     <div class="button_area">
@@ -137,7 +125,7 @@
                     </div>
                 </div>
                 <div>
-                <img src="images/cookies.jpg" class="productshowcase1">
+                <img src="images/Ramen.jpg" class="productshowcase1">
                 </div>
              
         </div>
@@ -146,20 +134,18 @@
     <section class="product_showcase">
         <div class="product_area">
                 <div>
-                <img src="images/cookies.jpg" class="productshowcase1">
+                <img src="images/drinks.png" class="productshowcase1">
                 </div>
                 <div>
                     <div  class="product_heading"><h1>DRINKS</h1></div>
                     
                     <div>
-                        <p class="product_description">Explore our selections of pastries. 
-                        Enjoy the <br> sweet and warm taste of our freshly baked
-                        <br> goods </p>
+                        <p class="product_description">Feeling thirsty? Sleepy? Maybe a cup of coffee or soda can solve these problems for you. Explore our diverse selection of drinks </p>
                     </div>
 
                     <div class="button_area">
-                        <div class="button">Order Online</div>
-                        <div class="button">Menu</div>
+                        <div class="button"><a>Order Online</a></div>
+                        <div class="button"><a>Menu</a></div>
                     </div>
                 </div>
         </div>
@@ -169,7 +155,7 @@
 
 </main>
 
-<!-- Star of Footer -->
+<!-- Start of Footer -->
 
 <footer>
 
@@ -181,8 +167,8 @@
         
         
         <div class="socmed_area">
-            <a><img src="images/footer/facebook.png" class="footer_socmed"></a>
-            <a><img src="images/footer/instagram.png" class="footer_socmed"></a>
+            <a href="https://www.facebook.com/profile.php?id=61584630794768" target="_blank"><img src="images/footer/facebook.png" class="footer_socmed"></a>
+            <a href="https://www.instagram.com/rest.in.beans/" target="_blank"><img src="images/footer/instagram.png" class="footer_socmed"></a>
         </div>
     </div>
 
@@ -190,7 +176,7 @@
         <h1 class="footer_heading">Links</h1>
 
         <ul class="footer_list">
-            <li><a>Home</a></li>
+            <li><a href="#top">Home</a></li>
             <li><a>Menu</a></li>
             <li><a>About</a></li>
             <li><a>Contact</a></li>
