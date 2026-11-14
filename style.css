@@ -1,6 +1,9 @@
-body {
+
+html, body {
     margin: 0;
     padding: 0;
+    width: 100%;
+    overscroll-behavior: none;
     background-color: #faeddf;
 
     display: grid;
@@ -12,22 +15,21 @@ body {
     "footer";
 }
 
+img, video {
+    max-width: 100%;
+}
 .main {
     grid-area: main;
 }
 /* google fonts  */
 
-.love-light-regular {
-  font-family: "Love Light", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
 
 /* Starting from here, CSS for navigation bar */
 .navbar ul{
 
-    height: 6.5rem;
+    height: 100%;
+    min-height: 6.5rem;
+    
     list-style-type: none;
     background-color: #aa7a52;
     padding: 0px;
@@ -35,25 +37,31 @@ body {
     font-size: 2.4rem;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+
     border-bottom: 2px solid black;
 }
 
 .logo {
-    width: 3.7em;
-    height: auto;
-    margin-left: 0.5rem;
+
+    width: clamp(7rem, 12vw, 12rem);
+
+    min-height: auto;
+    height: 100%;
+
+    margin-left: 0rem;
     padding-inline: 1em;
     cursor: pointer;
 }
+
 
 .navbar a{
 
     color: black;
     text-decoration: none;
     padding: 5px;
-    margin: 20px;
+    margin: 10px;
     display: block;
-    text-align: center;
     user-select: none;
     cursor: pointer;
 
@@ -130,8 +138,8 @@ body {
 /*best seller*/
 
 .sellerheader {
-    font-size: 4rem;
-    margin-left: 6rem;
+        font-size: 4rem;
+ margin-left: 6rem;
   font-family: "Mr Dafoe", cursive;
   font-weight: 200;
   font-style: normal;
@@ -146,30 +154,37 @@ body {
 .sellerban  {
     font-size: 4rem;
     display: grid;
-    place-items: center;
+    place-content: center;
 }
 
 .selector {
-    background-color: #aa7a52;
-    border-radius: 100px;
+      width: 100%;
+    max-width: 100rem;
+    box-sizing: border-box;
 
-    height: 40rem;
-    width: 100rem;
-    padding: 2rem ;
+    min-height: 40rem;
+    height: auto;
+
+    padding: 2rem;
     margin-bottom: 10rem;
-   
-   display: flex;
-   flex-direction: column;
-   border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+
+    background-color: #aa7a52;
+    border-radius: 50px;
+    border: 2px solid black;
     
 }
 
 .carousel {
     display: flex;
     flex-direction: row;
-    gap: 8rem;
+    flex-wrap: wrap;
+    gap: 2rem;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    min-width: 0;
 }
 
 .card_button{
@@ -192,7 +207,33 @@ body {
     border-radius: 50px;
     height: 37rem;
     width: 28rem;
+    display: block;
+    overflow: hidden;
 
+}
+
+.ProductCard img{
+
+    background-color: orange;
+    border-radius: 50px;
+    height: 37rem;
+    width: 28rem;
+    display: block;
+    overflow: hidden;
+
+   
+}
+
+
+.button_carousel {
+    position: absolute;
+    margin-top:  38rem
+}
+
+/*Javascript*/
+
+.ProductCard {
+    display: hidden;
 }
 
 /*product showcase*/
@@ -214,10 +255,19 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 4rem;
-    margin-bottom: 20rem;
-    margin-inline: 10rem;
-    gap: 5rem;
+    align-items: center;
+
+    margin: 4rem auto 20rem;
+    padding: 0 2rem;
+    gap: 3rem;
+
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+.product_area > * {
+    min-width: 0;
+    max-width: 100%;
 }
 
 .productshowcase1 {
@@ -232,8 +282,10 @@ body {
 .button_area {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 10rem;
+    gap: 2rem;
+    padding: 1rem;
 }
 
 .button {
@@ -279,7 +331,7 @@ footer {
     font-family: "Abril Fatface", serif;
     font-weight: 1px;
     font-style: normal;
-    margin-bottom: 3rme;
+    margin-bottom: 3rem;
 }
 
 .footer_area {
@@ -297,7 +349,8 @@ footer {
 }
 
 .footer_logo {
-    height: 15rem;
+    min-height: 15rem;
+    height: 100%;
     width: auto;
 }
 
@@ -319,6 +372,7 @@ footer {
 .footer_section2 {
     display: flex;
     flex-direction: column;
-    width: 30rem;
+    width: 100%;
+    min-width: 2rem;
 
 }
