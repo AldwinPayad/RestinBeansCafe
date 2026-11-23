@@ -1,0 +1,343 @@
+    :root {
+        --bg: #f9e8dc;
+        --page: 86rem;
+        --nav: #aa7a52;
+        --tabs: #e4c0a2;
+        --tab-active: #f9ebe0;
+        --shadow-block: #8d685c;
+        --footer: #a9886c;
+        --ink: #000;
+        --ink-soft: #2b1b10;
+        --line: rgba(141, 104, 92, 0.35);
+        --soft-shadow: rgba(70, 40, 20, 0.28);
+    }
+ 
+    * { box-sizing: border-box; }
+ 
+    /* Everything is sized in rem, and rem follows the screen width,
+       so the page keeps the exact same layout on phone and desktop. */
+    html {
+        /* Scales with the window but stops growing at 16px, so on a big screen
+           the menu reads at a normal size instead of filling the whole width. */
+        font-size: min(1vw, 16px);
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: none;
+        text-size-adjust: none;
+        background-color: var(--bg);
+        /* patterned picture, pinned to the viewport and scaled to cover it */
+        background-image: url("images/background.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        background: transparent;
+        color: var(--ink);
+        font-family: "Libre Baskerville", serif;
+        -webkit-font-smoothing: antialiased;
+    }
+ 
+    ::selection { background: var(--nav); color: #fff; }
+ 
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 0.2rem solid #5c3a21; outline-offset: 0.2rem; border-radius: 0.4rem; }
+ 
+    /* The picture shows on the left and right only: the menu itself sits in a
+       plain-coloured column down the middle. */
+    main {
+        flex: 1;
+        width: 100%;
+        max-width: var(--page);
+        margin-inline: auto;
+        background-color: var(--bg);
+    }
+ 
+    /* ---------- main navbar ---------- */
+    .navbar ul {
+        list-style: none;
+        margin: 0;
+        padding: 0 1.5rem;
+        height: 6.5rem;
+        background-color: var(--nav);
+        border-bottom: 1px solid #5a4030;
+        box-shadow: 0 0.3rem 0.8rem rgba(60, 35, 15, 0.25);
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+    }
+    .logo { height: 5.8rem; width: auto; display: block; transition: transform 0.25s ease; }
+    .logo:hover { transform: scale(1.05) rotate(-2deg); }
+    .navbar a {
+        font-size: 2.2rem;
+        font-weight: 700;
+        user-select: none;
+    }
+    .navbar a:hover { color: #5c4a3a; }
+ 
+    /* animated underline on MENU / ABOUT / CONTACTS (not the logo) */
+    .navbar li:not(:first-child) a { position: relative; transition: color 0.2s ease; }
+    .navbar li:not(:first-child) a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -0.3rem;
+        width: 100%;
+        height: 0.18rem;
+        background: currentColor;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.25s ease;
+    }
+    .navbar li:not(:first-child) a:hover::after { transform: scaleX(1); }
+ 
+    /* ---------- category tabs ---------- */
+    .tabs {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: var(--tabs);
+        border-bottom: 2px solid #555;
+        box-shadow: 0 0.4rem 0.8rem rgba(60, 35, 15, 0.18);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        white-space: nowrap;
+        gap: 0.5rem 0.8rem;
+        padding: 1.2rem 1rem;
+    }
+    .tabs a {
+        font-size: 1.55rem;
+        padding: 0.4rem 0.9rem;
+        border-radius: 0.6rem;
+        transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .tabs a:hover,
+    .tabs a.active { background: var(--tab-active); }
+    .tabs a.active { box-shadow: 0 0.15rem 0.4rem rgba(60, 35, 15, 0.22); }
+ 
+    /* ---------- menu sections ---------- */
+    .menu_section {
+        padding: 2.5rem 5rem 0;
+        margin-bottom: 7rem;
+        scroll-margin-top: 6rem;
+    }
+ 
+    .menu_heading {
+        margin: 0 0 1rem;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        font-family: "Permanent Marker", cursive;
+        font-weight: 400;
+        font-size: 6.5rem;
+        letter-spacing: 0.3rem;
+        line-height: 1.1;
+        text-shadow: 0.12rem 0.12rem 0 rgba(170, 122, 82, 0.35);
+    }
+    .menu_heading img { height: 7.5rem; width: auto; }
+    .menu_section.reverse .menu_heading { justify-content: flex-end; }
+ 
+    .menu_row {
+        display: flex;
+        align-items: center;
+        gap: 7rem;
+    }
+    .menu_section.reverse .menu_row { justify-content: flex-end; }
+ 
+    .menu_photo { flex-shrink: 0; }
+ 
+    .menu_photo img {
+        aspect-ratio: 1 / 1;
+        display: block;
+        width: 22rem;
+        height: 22rem;
+        object-fit: cover;
+        border-radius: 1.9rem;
+        box-shadow: 0 1rem 2rem var(--soft-shadow);
+        transition: transform 0.35s ease;
+    }
+    .menu_photo img:hover { transform: translateY(-0.4rem) scale(1.02); }
+    /* darker rounded block peeking out behind the photo */
+    .menu_photo.has_shadow { margin-left: 1.5rem; }
+    .menu_photo.has_shadow img { box-shadow: -1.5rem 1.2rem 0 var(--shadow-block), 0 1.2rem 2.2rem var(--soft-shadow); }
+ 
+    .menu_items {
+        display: flex;
+        gap: 6rem;
+    }
+    .menu_items ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .menu_items li {
+        font-size: 1.7rem;
+        font-weight: 700;
+        white-space: nowrap;
+        line-height: 1;
+        padding: 1.15rem 0.5rem;
+        margin-inline: -0.5rem;
+        border-radius: 0.4rem;
+        color: var(--ink-soft);
+        letter-spacing: 0.02rem;
+        border-bottom: 1px dashed var(--line);
+        transition: color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+    }
+    .menu_items li:last-child { border-bottom: none; }
+    .menu_items li:hover {
+        color: #8a5a36;
+        background-color: rgba(170, 122, 82, 0.1);
+        transform: translateX(0.4rem);
+    }
+    .menu_section.reverse .menu_items li:hover { transform: translateX(-0.4rem); }
+    .menu_section.reverse .menu_items ul { text-align: right; }
+ 
+    /* wider gap between the two soda columns */
+    .menu_items.wide_gap { gap: 14rem; }
+ 
+    /* soda sits closer to the add-ons band below it */
+    #soda { margin-bottom: 1.5rem; }
+
+ 
+    /* ---------- footer ---------- */
+    footer {
+        background-color: var(--footer);
+        border-top: 2px solid rgba(60, 35, 15, 0.35);
+        display: flex;
+        justify-content: center;
+        padding: 2rem 1.5rem;
+        font-family: "Josefin Sans", sans-serif;
+    }
+    .footer_area {
+        display: flex;
+        gap: 4rem;
+        white-space: nowrap;
+    }
+    .footer_section1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+    }
+    .footer_logo { height: 11rem; width: auto; }
+    .socmed_area { display: flex; gap: 2.5rem; }
+    .footer_socmed { height: 2.6rem; width: auto; display: block; transition: transform 0.2s ease; }
+    .socmed_area a:hover .footer_socmed { transform: translateY(-0.3rem) scale(1.1); }
+ 
+    .footer_heading {
+        margin: 0 0 0.8rem;
+        padding-bottom: 0.4rem;
+        font-size: 3rem;
+        font-weight: 300;
+        letter-spacing: 0.04rem;
+        border-bottom: 1px solid rgba(60, 35, 15, 0.22);
+    }
+    .footer_list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-size: 1.15rem;
+    }
+    .footer_list li { margin-bottom: 0.6rem; }
+    .footer_list a { transition: color 0.2s ease; }
+    .footer_list a:hover { color: #4a3a2e; }
+    .footer_section3 { width: 30rem; }
+ 
+ 
+    @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        * { transition: none !important; }
+    }
+ 
+    /* ---------- small screens: only sizes and spacing change, never the arrangement ---------- */
+    @media (max-width: 700px) {
+        html { font-size: 1.9vw; }
+ 
+        .navbar ul { padding: 0 0.8rem; gap: 1.5rem; }
+        .logo { height: 5rem; }
+        .navbar a { font-size: 1.8rem; }
+ 
+        .tabs { padding: 0.7rem 0.5rem; gap: 0.4rem 0.5rem; }
+        .tabs a { font-size: 1.5rem; padding: 0.35rem 0.7rem; }
+ 
+        .menu_section { padding: 1.5rem 1rem 0; margin-bottom: 4rem; }
+        .menu_heading { font-size: 3.6rem; gap: 1rem; letter-spacing: 0.15rem; }
+        .menu_heading img { height: 4.2rem; }
+ 
+        .menu_row { gap: 1.5rem; }
+        .menu_photo img { width: 12rem; height: 12rem; border-radius: 1rem; }
+        .menu_photo.has_shadow { margin-left: 0.8rem; }
+        .menu_photo.has_shadow img { box-shadow: -0.8rem 0.6rem 0 var(--shadow-block), 0 0.6rem 1rem var(--soft-shadow); }
+        .menu_items { gap: 1.5rem; }
+        .menu_items li { font-size: 1.5rem; padding: 0.8rem 0; }
+ 
+        footer { padding: 1.2rem 0.8rem; }
+        .footer_area { gap: 1.5rem; white-space: normal; }
+        .footer_logo { height: 7rem; }
+        .socmed_area { gap: 1rem; }
+        .footer_socmed { height: 2rem; }
+        .footer_heading { font-size: 2rem; }
+        .footer_list { font-size: 1rem; }
+        .footer_section3 { width: 17rem; }
+ 
+        .menu_items.wide_gap { gap: 6rem; }
+        .menu_section.addons { padding: 2rem 1rem; }
+    }
+
+    /* ---------- printing the menu ---------- */
+    @media print {
+        html { font-size: 11pt; scroll-behavior: auto; background: #fff; }
+        body { background: #fff; }
+
+        .navbar,
+        .tabs,
+        .socmed_area { display: none; }
+
+        .menu_section {
+            padding: 0;
+            margin-bottom: 1.2rem;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+        .menu_heading {
+            font-size: 1.9rem;
+            letter-spacing: 0.05rem;
+            color: #000;
+            text-shadow: none;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #999;
+        }
+        .menu_row { gap: 2rem; }
+        .menu_photo img,
+        .menu_photo.has_shadow img {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 0.4rem;
+            box-shadow: none;
+        }
+        .menu_items li {
+            font-size: 1rem;
+            padding: 0.25rem 0;
+            margin-inline: 0;
+            border-bottom: none;
+            break-inside: avoid;
+        }
+        .menu_section.reverse .menu_items li:hover { transform: none; }
+
+        footer {
+            background: #fff;
+            color: #000;
+            border-top: 1px solid #999;
+            padding-top: 0.8rem;
+        }
+        .footer_logo { height: 4rem; }
+        .footer_heading { font-size: 1.4rem; border-bottom: 1px solid #ccc; }
+        .footer_list { font-size: 0.85rem; }
+    }
