@@ -226,7 +226,7 @@ img, video {
 /* Moving track */
 
 .carousel-track {
-    --visible: 4;
+    --visible: 3;
     --gap: 1.5rem;
 
     display: flex;
