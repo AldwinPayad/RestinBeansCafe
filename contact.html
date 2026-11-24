@@ -31,7 +31,7 @@
         }
 
         .contact-content {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 4rem auto;
             padding: 0 2rem;
         }
@@ -44,30 +44,49 @@
             margin-bottom: 2rem;
         }
 
-        .contact-grid {
+        /* Main contact container */
+        .contact-container {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 2rem;
-        }
-
-        .contact-card {
             background: #e4c0a2;
             border: 2px solid black;
             border-radius: 18px;
-            padding: 2rem;
-            text-align: center;
+            padding: 2.5rem;
+        }
+
+        /* Existing contact information */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
             font-family: "Libre Baskerville", serif;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            background: #f0d4bd;
+            border: 2px solid black;
+            border-radius: 18px;
+            padding: 1.5rem;
+            text-align: center;
             overflow-wrap: anywhere;
         }
 
         .contact-card h3 {
             font-family: "Cinzel Decorative", serif;
             color: #70452d;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-top: 0;
         }
 
         .contact-card p {
+            font-family: "Libre Baskerville", serif;
             line-height: 1.8;
             margin-bottom: 0;
         }
@@ -82,8 +101,7 @@
         }
 
         .contact-highlight {
-            margin-top: 3rem;
-            padding: 2rem;
+            padding: 1.5rem;
             background: #aa7a52;
             border: 2px solid black;
             border-radius: 18px;
@@ -98,6 +116,82 @@
             margin-top: 0;
         }
 
+        /* Contact form */
+        .contact-form-container {
+            background: #f0d4bd;
+            border: 2px solid black;
+            border-radius: 18px;
+            padding: 2rem;
+            font-family: "Libre Baskerville", serif;
+        }
+
+        .contact-form-container h2 {
+            font-family: "Cinzel Decorative", serif;
+            color: #70452d;
+            text-align: center;
+            font-size: 1.7rem;
+            margin-top: 0;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #70452d;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0.9rem;
+            border: 2px solid #70452d;
+            border-radius: 8px;
+            background: #fff8f1;
+            font-family: "Libre Baskerville", serif;
+            font-size: 0.95rem;
+        }
+
+        .form-group textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            padding: 1rem;
+            background: #70452d;
+            color: white;
+            border: 2px solid black;
+            border-radius: 8px;
+            font-family: "Cinzel Decorative", serif;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #aa7a52;
+        }
+
+        @media (max-width: 800px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+        }
+
         @media (max-width: 600px) {
             .contact-hero {
                 padding: 3rem 1.5rem;
@@ -110,6 +204,14 @@
 
             .contact-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                padding: 1rem;
+            }
+
+            .contact-form-container {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -142,51 +244,103 @@
         <section class="contact-content">
             <h2 class="contact-heading">Get in Touch</h2>
 
-            <div class="contact-grid">
+            <div class="contact-container">
 
-                <div class="contact-card">
-                    <h3>Phone Number</h3>
-                    <p>
-                        <a href="tel:09515422593">0951 542 2593</a>
-                    </p>
+                <!-- Left side: Existing contact information -->
+                <div class="contact-info">
+
+                    <div class="contact-grid">
+
+                        <div class="contact-card">
+                            <h3>Phone Number</h3>
+                            <p>
+                                <a href="tel:09515422593">0951 542 2593</a>
+                            </p>
+                        </div>
+
+                        <div class="contact-card">
+                            <h3>Email Address</h3>
+                            <p>
+                                <a href="mailto:alkalinebenniepayer@gmail.com">
+                                    alkalinebenniepayer@gmail.com
+                                </a>
+                            </p>
+                        </div>
+
+                        <div class="contact-card">
+                            <h3>Our Location</h3>
+                            <p>
+                                2777A Juan Luna St., Tondo, Gagalangin
+                            </p>
+                        </div>
+
+                        <div class="contact-card">
+                            <h3>Social Media</h3>
+                            <p>
+                                <a href="https://www.facebook.com/profile.php?id=61584630794768"
+                                   target="_blank" rel="noopener noreferrer">Facebook</a>
+                                <br>
+                                <a href="https://www.instagram.com/rest.in.beans/"
+                                   target="_blank" rel="noopener noreferrer">Instagram</a>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="contact-highlight">
+                        <h2>We'd Love to Hear From You!</h2>
+                        <p>
+                            Whether you have a question, feedback, or an inquiry,
+                            you can contact Rest in Beans through any of our
+                            available communication channels.
+                        </p>
+                    </div>
+
                 </div>
 
-                <div class="contact-card">
-                    <h3>Email Address</h3>
-                    <p>
-                        <a href="mailto:alkalinebenniepayer@gmail.com">
-                            alkalinebenniepayer@gmail.com
-                        </a>
-                    </p>
+                <!-- Right side: Contact form -->
+                <div class="contact-form-container">
+                    <h2>Send Us a Message</h2>
+
+                    <form class="contact-form" action="#" method="POST">
+
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                placeholder="Write your message here..."
+                                required
+                            ></textarea>
+                        </div>
+
+                        <button type="submit">Submit</button>
+
+                    </form>
                 </div>
 
-                <div class="contact-card">
-                    <h3>Our Location</h3>
-                    <p>
-                        2777A Juan Luna St., Tondo, Gagalangin
-                    </p>
-                </div>
-
-                <div class="contact-card">
-                    <h3>Social Media</h3>
-                    <p>
-                        <a href="https://www.facebook.com/profile.php?id=61584630794768"
-                           target="_blank" rel="noopener noreferrer">Facebook</a>
-                        <br>
-                        <a href="https://www.instagram.com/rest.in.beans/"
-                           target="_blank" rel="noopener noreferrer">Instagram</a>
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="contact-highlight">
-                <h2>We'd Love to Hear From You!</h2>
-                <p>
-                    Whether you have a question, feedback, or an inquiry,
-                    you can contact Rest in Beans through any of our
-                    available communication channels.
-                </p>
             </div>
         </section>
     </main>
