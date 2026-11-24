@@ -279,17 +279,90 @@ img, video {
     overflow: hidden;
 }
 
+.product-link {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: inherit;
+    color: white;
+    text-decoration: none;
+    isolation: isolate;
+}
 
-.ProductCard img{
-
-    background-color: orange;
-    border-radius: 50px;
+.product-link img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    overflow: hidden;
+    transition: transform 0.45s ease;
+}
 
+/* Dark gradient overlay */
+.product-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(25, 14, 8, 0.88) 0%,
+        rgba(25, 14, 8, 0.38) 35%,
+        rgba(25, 14, 8, 0) 72%
+    );
+    transition: background 0.35s ease;
+    pointer-events: none;
+}
+
+/* Product name */
+.product-name {
+    position: absolute;
+    z-index: 1;
+    left: 1.25rem;
+    right: 1.25rem;
+    bottom: 1.5rem;
+    color: #fff;
+    font-family: inherit;
+    font-size: clamp(1.1rem, 1.6vw, 1.65rem);
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    transition: transform 0.35s ease;
+}
+
+/* Hover and keyboard focus */
+.product-link:hover img,
+.product-link:focus-visible img {
+    transform: scale(1.07);
+}
+
+.product-link:hover::after,
+.product-link:focus-visible::after {
+    background: linear-gradient(
+        to top,
+        rgba(25, 14, 8, 0.95) 0%,
+        rgba(25, 14, 8, 0.48) 42%,
+        rgba(25, 14, 8, 0.08) 100%
+    );
+}
+
+.product-link:hover .product-name,
+.product-link:focus-visible .product-name {
+    transform: translateY(-0.35rem);
+}
+
+.product-link:focus-visible {
+    outline: 4px solid #fff;
+    outline-offset: -6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .product-link img,
+    .product-link::after,
+    .product-name {
+        transition: none;
+    }
 }
 
 /*product showcase*/
