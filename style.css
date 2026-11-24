@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
 }
@@ -8,35 +9,31 @@ body {
     width: 100%;
     overscroll-behavior: none;
     scroll-behavior: smooth;
-
     background-color: #faeddf;
 
     display: grid;
-    grid-template-columns: minmax(0, 1fr); 
+    grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto 1fr auto;
     grid-template-areas:
-    "header"
-    "main"
-    "footer";
+        "header"
+        "main"
+        "footer";
 }
 
 img, video {
     max-width: 100%;
 }
+
 .main {
     grid-area: main;
 }
-/* google fonts  */
 
-
-/* navigation bar */
+/* Navigation bar */
 
 .navbar {
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     height: 10rem;
     min-height: 10rem;
     width: 100%;
@@ -44,10 +41,10 @@ img, video {
     border-bottom: 2px solid black;
 }
 
-.navbar ul{
+.navbar ul {
     list-style-type: none;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     font-size: 2.4rem;
     display: flex;
     align-items: center;
@@ -55,20 +52,15 @@ img, video {
 }
 
 .logo {
-
     width: clamp(7rem, 12vw, 12rem);
-
     min-height: auto;
     height: 100%;
-
-    margin-left: 0rem;
+    margin-left: 0;
     padding-inline: 1em;
     cursor: pointer;
 }
 
-
-.navbar a{
-
+.navbar a {
     color: black;
     text-decoration: none;
     padding: 5px;
@@ -77,11 +69,10 @@ img, video {
     user-select: none;
     cursor: pointer;
 
-
     font-family: "Libre Baskerville", serif;
     font-optical-sizing: auto;
     font-weight: 400;
-    font-style: normal
+    font-style: normal;
 }
 
 .navbar a:hover {
@@ -89,10 +80,7 @@ img, video {
     transition: 0.3s;
 }
 
-/*navigation style sheet ends here*/
-
-
-/*video & img banner*/
+/* Video and image banner */
 
 .banner {
     display: grid;
@@ -102,7 +90,6 @@ img, video {
     border: 4px solid black;
 }
 
-/* the video box is the anchor for the "Discover more" button */
 .banner_video {
     position: relative;
     display: grid;
@@ -121,7 +108,7 @@ img, video {
     z-index: 1;
 }
 
-.video_overlay button{
+.video_overlay button {
     background-color: #aa7a52;
     border: 2px solid black;
     font-size: 2em;
@@ -135,13 +122,12 @@ img, video {
 }
 
 .banner_video video {
-  width: 100%;
-  height: clamp(20rem, 50vw, 45rem);
-  object-fit: cover;
-  object-position: center;
-  display: block;
+    width: 100%;
+    height: clamp(20rem, 50vw, 45rem);
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
-
 
 .banner_image {
     display: grid;
@@ -151,14 +137,14 @@ img, video {
 }
 
 .banner_image img {
-  width: 100%;
-  height: clamp(20rem, 50vw, 45rem);
-  object-fit: cover;
-  object-position: center;
-  display: block;
+    width: 100%;
+    height: clamp(20rem, 50vw, 45rem);
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
-/*best seller*/
+/* Best seller */
 
 .sellerheader {
     font-size: clamp(2rem, 6vw, 4rem);
@@ -181,7 +167,7 @@ img, video {
     display: grid;
 }
 
-.sellerban  {
+.sellerban {
     font-size: 4rem;
     display: grid;
     justify-items: center;
@@ -191,19 +177,15 @@ img, video {
 .selector {
     width: 100%;
     max-width: 100rem;
-
     min-height: 0;
     height: auto;
-
     padding: 2rem;
     margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
-
     background-color: #aa7a52;
     border-radius: 50px;
     border: 2px solid black;
-
 }
 
 .carousel {
@@ -214,7 +196,6 @@ img, video {
     overflow: hidden;
 }
 
-/* --visible and --gap are read by index.js too, so CSS and JS always agree */
 .carousel-track {
     --visible: 3;
     --gap: 4rem;
@@ -225,7 +206,6 @@ img, video {
     gap: var(--gap);
     width: 100%;
     min-width: 0;
-
     transition: transform 0.5s ease;
 }
 
@@ -234,7 +214,6 @@ img, video {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-
     width: 100%;
     margin: 0 0 clamp(4rem, 10vw, 10rem);
 }
@@ -246,29 +225,23 @@ img, video {
     padding: 0.5rem 1.5rem;
     cursor: pointer;
     border-radius: 15px;
-
 }
 
 .button_carousel button:hover {
     transition: 0.3s;
     background-color: #dfd2c9;
-
 }
 
-/* card width = (track width - gaps) / number of visible cards */
 .ProductCard {
-
     background-color: orange;
     border-radius: 50px;
     flex: 0 0 calc((100% - (var(--visible) - 1) * var(--gap)) / var(--visible));
     aspect-ratio: 28 / 37;
     display: block;
     overflow: hidden;
-
 }
 
-.ProductCard img{
-
+.ProductCard img {
     background-color: orange;
     border-radius: 50px;
     width: 100%;
@@ -276,17 +249,16 @@ img, video {
     object-fit: cover;
     display: block;
     overflow: hidden;
-
 }
 
-/*product showcase*/
+/* Product showcase */
 
 .product_heading {
     font-family: "Cinzel Decorative", serif;
-  font-weight: 200;
-  font-style: normal;
-  font-size: 2rem;
-  text-align: center;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 2rem;
+    text-align: center;
 }
 
 .product_showcase {
@@ -300,11 +272,9 @@ img, video {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-
     margin: 4rem auto clamp(4rem, 10vw, 20rem);
     padding: 0 2rem;
     gap: 3rem;
-
     max-width: 1200px;
     box-sizing: border-box;
 }
@@ -320,7 +290,6 @@ img, video {
     max-width: 100%;
     object-fit: cover;
     padding: 1rem;
-
     overflow: hidden;
 }
 
@@ -353,8 +322,7 @@ img, video {
     transition: 0.3s;
 }
 
-
-/*footer*/
+/* Footer */
 
 footer {
     background-color: #a9886c;
@@ -370,18 +338,21 @@ footer {
     font-size: 1.2rem;
 }
 
-.footer_list li{
-   margin-bottom: 20px;
+.footer_list li {
+    margin-bottom: 20px;
 }
 
-.footer_list a, .footer_list a:visited, .footer_list a:active, .footer_list a:focus{
-   color: rgb(48, 48, 48);
-   overflow-wrap: anywhere; /* long email addresses wrap instead of overflowing */
+.footer_list a,
+.footer_list a:visited,
+.footer_list a:active,
+.footer_list a:focus {
+    color: rgb(48, 48, 48);
+    overflow-wrap: anywhere;
 }
 
-.footer_list a:hover{
-   color: rgb(122, 121, 121);
-   cursor: pointer;
+.footer_list a:hover {
+    color: rgb(122, 121, 121);
+    cursor: pointer;
 }
 
 .footer_heading {
@@ -419,14 +390,13 @@ footer {
     width: auto;
 }
 
-.footer_socmed img:hover{
+.footer_socmed img:hover {
     cursor: pointer;
 }
 
 .socmed_area {
     display: flex;
     gap: 4rem;
-
 }
 
 .footer_section2 {
@@ -436,18 +406,113 @@ footer {
     min-width: 0;
 }
 
-/* Large tablets / small laptops: 2 cards in the carousel */
+/* About and Contact footer */
+
+footer:has(.footer-inner) {
+    padding: 3rem 4rem;
+    background-color: #a9886c;
+    border-top: 2px solid rgba(60, 35, 15, 0.35);
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.footer-inner {
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4rem;
+}
+
+.logo-col {
+    text-align: center;
+    flex-shrink: 0;
+}
+
+footer:has(.footer-inner) .footer-logo {
+    display: block;
+    height: 11rem;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+footer:has(.footer-inner) .socials img {
+    display: block;
+    height: 2.6rem;
+    width: auto;
+    max-width: 2.6rem;
+    object-fit: contain;
+}
+
+.footer-col {
+    min-width: 0;
+    flex: 1 1 10rem;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.footer-col h3 {
+    margin: 0 0 0.8rem;
+    padding-bottom: 0.4rem;
+    font-size: 3rem;
+    font-weight: 300;
+    border-bottom: 1px solid rgba(141, 104, 92, 0.35);
+}
+
+.footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1.15rem;
+}
+
+.footer-col li {
+    margin-bottom: 0.6rem;
+    overflow-wrap: anywhere;
+}
+
+.footer-col a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-col a:hover {
+    color: #f9e8dc;
+    transition: 0.2s;
+}
+
+.footer-col.contacts {
+    flex: 1.5 1 18rem;
+}
+
+/* Large tablets / small laptops */
+
 @media (max-width: 1100px) {
-    .carousel-track { --visible: 2; }
+    .carousel-track {
+        --visible: 2;
+    }
 }
 
 /* Tablets and below */
+
 @media (max-width: 900px) {
-    html { font-size: 90%; }          /* everything in rem shrinks a bit */
+    html {
+        font-size: 90%;
+    }
 
     .banner {
-        grid-template-columns: 1fr;   /* stack video and image */
+        grid-template-columns: 1fr;
     }
+
     .banner_video {
         border-right: none;
         border-bottom: 4px solid black;
@@ -459,21 +524,50 @@ footer {
         flex-wrap: wrap;
         padding: 1rem 0;
     }
+
     .navbar ul {
         font-size: 1.8rem;
         flex-wrap: wrap;
         justify-content: center;
     }
+
+    /* About and Contact footer tablet layout */
+
+    footer:has(.footer-inner) {
+        padding: 2rem 1.5rem;
+    }
+
+    .footer-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2.5rem;
+    }
+
+    .logo-col {
+        flex-basis: 100%;
+    }
+
+    .footer-col {
+        flex: 1 1 12rem;
+    }
+
+    .footer-col.contacts {
+        flex: 1 1 100%;
+    }
 }
 
-/*Meida queries */
+/* Mobile */
+
 @media (max-width: 600px) {
-    html { font-size: 75%; }
+    html {
+        font-size: 75%;
+    }
 
     .navbar {
         flex-direction: column;
         gap: 0.5rem;
     }
+
     .navbar ul {
         font-size: 1.6rem;
     }
@@ -492,6 +586,7 @@ footer {
         flex-direction: column;
         text-align: center;
     }
+
     .product_description {
         width: 100%;
         max-width: 30rem;
@@ -499,171 +594,72 @@ footer {
 
     .footer_area {
         display: grid;
-        grid-template-columns: 1fr 1fr;   /* two columns */
+        grid-template-columns: 1fr 1fr;
         gap: 2rem 1rem;
         width: 100%;
         margin: 1.5rem 1rem;
     }
+
     .footer_section1 {
-        grid-column: 1 / -1;              /* logo + socials span the full row */
+        grid-column: 1 / -1;
     }
+
     .footer_section2:last-child {
-        grid-column: 1 / -1;              /* Contacts spans the full row */
+        grid-column: 1 / -1;
     }
+
     .footer_heading {
-        margin-bottom: 1rem;              /* the 3rem gap is too tall on phones */
+        margin-bottom: 1rem;
     }
-    .socmed_area { gap: 2rem; }
 
+    .socmed_area {
+        gap: 2rem;
+    }
 
-    /* ---------- About and Contact footer ---------- */
+    /* About and Contact footer phone layout */
 
     footer:has(.footer-inner) {
-        padding: 2rem 1.5rem 7rem;
-        background-color: #a9886c;
-        border-top: 2px solid rgba(60, 35, 15, 0.35);
-        font-family: "Josefin Sans", sans-serif;
+        padding: 1.5rem 1rem 3rem;
     }
 
     .footer-inner {
-        width: 100%;
-        max-width: 90rem;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 4rem;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2rem 1rem;
     }
 
     .logo-col {
-        text-align: center;
-        flex-shrink: 0;
+        grid-column: 1 / -1;
     }
 
-    .footer-logo {
-        height: 11rem;
-        width: auto;
-        object-fit: contain;
+    footer:has(.footer-inner) .footer-logo {
+        height: 7rem;
     }
 
     .socials {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2.5rem;
+        gap: 2rem;
     }
 
-    .socials img {
-        height: 2.6rem;
-        width: auto;
-        object-fit: contain;
+    footer:has(.footer-inner) .socials img {
+        height: 2rem;
+        max-width: 2rem;
     }
 
     .footer-col {
         min-width: 0;
-        flex: 1 1 10rem;
-        font-family: "Josefin Sans", sans-serif;
     }
 
     .footer-col h3 {
-        margin: 0 0 0.8rem;
-        padding-bottom: 0.4rem;
-        font-size: 3rem;
-        font-weight: 300;
-        border-bottom: 1px solid rgba(141, 104, 92, 0.35);
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
     }
 
     .footer-col ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        font-size: 1.15rem;
-    }
-
-    .footer-col li {
-        margin-bottom: 0.6rem;
-        overflow-wrap: anywhere;
-    }
-
-    .footer-col a {
-        color: inherit;
-        text-decoration: none;
-    }
-
-    .footer-col a:hover {
-        color: #f9e8dc;
-        transition: 0.2s;
+        font-size: 1rem;
+        line-height: 1.5;
     }
 
     .footer-col.contacts {
-        flex: 1.5 1 18rem;
-    }
-
-    /* Tablet layout */
-    @media (max-width: 900px) {
-        .footer-inner {
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2.5rem;
-        }
-
-        .logo-col {
-            flex-basis: 100%;
-        }
-
-        .footer-col {
-            flex: 1 1 12rem;
-        }
-
-        .footer-col.contacts {
-            flex: 1 1 100%;
-        }
-    }
-
-    /* Phone layout */
-    @media (max-width: 600px) {
-        footer:has(.footer-inner) {
-            padding: 1.5rem 1rem 3rem;
-        }
-
-        .footer-inner {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 2rem 1rem;
-        }
-
-        .logo-col {
-            grid-column: 1 / -1;
-        }
-
-        .footer-logo {
-            height: 7rem;
-        }
-
-        .socials {
-            gap: 2rem;
-        }
-
-        .socials img {
-            height: 2rem;
-        }
-
-        .footer-col {
-            min-width: 0;
-        }
-
-        .footer-col h3 {
-            font-size: 2rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-col ul {
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        .footer-col.contacts {
-            grid-column: 1 / -1;
-        }
+        grid-column: 1 / -1;
     }
 }
