@@ -6,14 +6,24 @@ const selector = document.querySelector('.carousel-track');
 
 let currentindex = 0;
 
-// How many cards are visible right now.
-// The number comes from the --visible CSS variable (3 on desktop, 2 on tablet, 1 on phone),
+// Get the number of currently visible cards from CSS
 function getVisible() {
-    const value = parseInt(getComputedStyle(selector).getPropertyValue('--visible'), 10);
-    return value || 3;
+    const value = parseInt(
+        getComputedStyle(selector).getPropertyValue('--visible'),
+        10
+    );
+
+    return value || 1;
 }
 
+// Get the maximum starting index without leaving empty spaces
+function getMaxIndex() {
+    return Math.max(0, items.length - getVisible());
+}
+
+// Move the carousel
 function updateCarousel() {
+    if (!items.length) return;
 
     const firstItem = items[0].getBoundingClientRect();
     const currentItem = items[currentindex].getBoundingClientRect();
@@ -21,43 +31,43 @@ function updateCarousel() {
     const distance = currentItem.left - firstItem.left;
 
     selector.style.transform = `translateX(-${distance}px)`;
-
 }
 
-
-next.addEventListener('click', function (){
-
-    const maxindex = items.length - getVisible();
+// Next button
+next.addEventListener('click', function () {
+    const maxindex = getMaxIndex();
 
     if (currentindex < maxindex) {
         currentindex++;
-    } else { currentindex = 0;}
-
-    updateCarousel();
-})
-
-prev.addEventListener('click', function (){
-
-    const maxindex = items.length - getVisible();
-
-    if (currentindex <= 0) {
-        currentindex = maxindex;
     } else {
-        currentindex--;
+        currentindex = 0;
     }
 
     updateCarousel();
-})
+});
 
+// Previous button
+prev.addEventListener('click', function () {
+    const maxindex = getMaxIndex();
 
-window.addEventListener('resize', function () {
-    const maxindex = items.length - getVisible();
-    if (currentindex > maxindex) {
+    if (currentindex > 0) {
+        currentindex--;
+    } else {
         currentindex = maxindex;
     }
-    updateCarousel();
-})
 
+    updateCarousel();
+});
+
+// Recalculate position when screen size changes
+window.addEventListener('resize', function () {
+    currentindex = Math.min(currentindex, getMaxIndex());
+
+    requestAnimationFrame(updateCarousel);
+});
+
+// Initial positioning
+window.addEventListener('load', updateCarousel);
 // scroll to top
 
 const scrollBtn = document.getElementById("scrollBtn");
