@@ -133,8 +133,9 @@ img, video {
 }
 
 .video_overlay button{
-    padding: 2em;
-    background-color: #f5caa7;
+    padding: 0.6em;
+    margin: 1em;
+    background-color: #eee1d6;
     border: 2px solid black;
     font-size: 2em;
     font-family: "Libre Baskerville", serif;
@@ -145,7 +146,7 @@ img, video {
 }
 
 .video_overlay button:hover {
-    background-color: blanchedalmond;
+    background-color: rgb(252, 246, 237);
     transition: 0.3s;
 }
 
