@@ -174,20 +174,22 @@ img, video {
 
 /*best seller*/
 
+/* BEST SELLERS */
+
 .sellerheader {
-    font-size: clamp(2rem, 6vw, 4rem);
-    margin-left: clamp(1rem, 5vw, 6rem);
-    letter-spacing: clamp(0.2rem, 1vw, 1rem);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    margin-left: clamp(1rem, 5vw, 5rem);
+    letter-spacing: clamp(0.2rem, 0.8vw, 0.7rem);
     font-family: "Mr Dafoe", cursive;
     font-weight: 200;
     font-style: normal;
 }
 
 .bestseller_icon {
-    height: clamp(6rem, 12vw, 11rem);
+    height: clamp(4rem, 8vw, 7rem);
     width: auto;
     position: relative;
-    top: 20px;
+    top: 15px;
 }
 
 .best_seller {
@@ -195,43 +197,37 @@ img, video {
     display: grid;
 }
 
-.sellerban  {
-    font-size: 4rem;
+.sellerban {
+    font-size: 2rem;
     display: grid;
     justify-items: center;
-    padding-inline: 1rem;
+    padding-inline: 2rem;
 }
+
+/* Carousel container */
 
 .selector {
     width: 100%;
-    max-width: 100rem;
-
-    min-height: 0;
-    height: auto;
-
-    padding: 2rem;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-
+    max-width: 90rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
     background-color: #aa7a52;
-    border-radius: 50px;
+    border-radius: 35px;
     border: 2px solid black;
-
 }
 
-.carousel {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+/* Visible carousel area */
+
+.carousel-viewport {
     width: 100%;
     overflow: hidden;
 }
 
-/* --visible and --gap are read by index.js too, so CSS and JS always agree */
+/* Moving track */
+
 .carousel-track {
-    --visible: 3;
-    --gap: 4rem;
+    --visible: 4;
+    --gap: 1.5rem;
 
     display: flex;
     flex-direction: row;
@@ -239,45 +235,21 @@ img, video {
     gap: var(--gap);
     width: 100%;
     min-width: 0;
-
     transition: transform 0.5s ease;
 }
 
-.button_carousel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+/* Product cards */
 
-    width: 100%;
-    margin: 0 0 clamp(4rem, 10vw, 10rem);
-}
-
-.button_carousel button {
-    background-color: #dd721a;
-    border: 2px solid black;
-    font-size: 2rem;
-    padding: 0.5rem 1.5rem;
-    cursor: pointer;
-    border-radius: 15px;
-
-}
-
-.button_carousel button:hover {
-    transition: 0.3s;
-    background-color: #dfd2c9;
-
-}
-
-/* card width = (track width - gaps) / number of visible cards */
 .ProductCard {
     background-color: orange;
-    border-radius: 50px;
     flex: 0 0 calc((100% - (var(--visible) - 1) * var(--gap)) / var(--visible));
-    aspect-ratio: 28 / 37;
+    aspect-ratio: 4 / 5;
+    border-radius: 25px;
     display: block;
     overflow: hidden;
 }
+
+/* Clickable image area */
 
 .product-link {
     position: relative;
@@ -299,7 +271,8 @@ img, video {
     transition: transform 0.45s ease;
 }
 
-/* Dark gradient overlay */
+/* Gradient overlay */
+
 .product-link::after {
     content: "";
     position: absolute;
@@ -314,16 +287,17 @@ img, video {
     pointer-events: none;
 }
 
-/* Product name */
+/* Product names */
+
 .product-name {
     position: absolute;
     z-index: 1;
-    left: 1.25rem;
-    right: 1.25rem;
-    bottom: 1.5rem;
-    color: #fff;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1.2rem;
+    color: white;
     font-family: inherit;
-    font-size: clamp(1.1rem, 1.6vw, 1.65rem);
+    font-size: clamp(0.9rem, 1.2vw, 1.4rem);
     font-weight: 700;
     line-height: 1.2;
     text-align: center;
@@ -331,7 +305,8 @@ img, video {
     transition: transform 0.35s ease;
 }
 
-/* Hover and keyboard focus */
+/* Hover effects */
+
 .product-link:hover img,
 .product-link:focus-visible img {
     transform: scale(1.07);
@@ -353,9 +328,60 @@ img, video {
 }
 
 .product-link:focus-visible {
-    outline: 4px solid #fff;
+    outline: 4px solid white;
     outline-offset: -6px;
 }
+
+/* Carousel navigation buttons */
+
+.button_carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    margin: 0 0 4rem;
+}
+
+.button_carousel button {
+    background-color: #dd721a;
+    border: 2px solid black;
+    font-size: 1.5rem;
+    padding: 0.4rem 1.2rem;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.button_carousel button:hover {
+    transition: 0.3s;
+    background-color: #dfd2c9;
+}
+
+/* Responsive carousel */
+
+@media (max-width: 1100px) {
+    .carousel-track {
+        --visible: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .sellerban {
+        padding-inline: 1rem;
+    }
+
+    .selector {
+        padding: 1rem;
+        border-radius: 25px;
+    }
+
+    .carousel-track {
+        --visible: 1;
+        --gap: 1rem;
+    }
+}
+
+/* Reduced motion accessibility */
 
 @media (prefers-reduced-motion: reduce) {
     .product-link img,
@@ -623,11 +649,22 @@ footer {
     .carousel-track {
         --visible: 1;
         --gap: 2rem;
+        flex-shrink: 0;
     }
 
-    .selector {
-        border-radius: 25px;
-        padding: 1rem;
+   .selector {
+        width: 100%;
+        max-width: 85rem;
+        min-height: 0;
+        height: auto;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        background-color: #aa7a52;
+        border-radius: 35px;
+        border: 2px solid black;
     }
 
     .product_area {
