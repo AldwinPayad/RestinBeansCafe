@@ -32,3 +32,19 @@ cartButton.addEventListener("click", function () {
     window.location.href =
         "RestinBeansCafe-menu-items/Espresso/order.html?items=" + pickedList;
 });
+
+const scrollBtn = document.getElementById("scrollBtn");
+
+window.onscroll = function() {
+  if (document.body.scrollTop > 2500 || document.documentElement.scrollTop > 2500) {
+    scrollBtn.style.display = "block";
+  } else {
+    scrollBtn.style.display = "none";
+  }
+};
+
+scrollBtn.addEventListener("click", function() {
+  window.scrollTo({
+    top: 0,
+  });
+})
