@@ -12,6 +12,26 @@
 
 <body>
 
+    <dialog id="receipt-dialog" class="receipt">
+        <h2>Rest in Beans</h2>
+        <p class="receipt-sub">Your order has been submitted</p>
+ 
+        <div class="receipt-info">
+            <p><span>Name:</span> <span id="receipt-name"></span></p>
+            <p><span>Email:</span> <span id="receipt-email"></span></p>
+            <p><span>Date:</span> <span id="receipt-date"></span></p>
+        </div>
+ 
+        <ul id="receipt-items" class="receipt-items"></ul>
+ 
+        <div class="receipt-total">
+            <span>TOTAL:</span>
+            <span id="receipt-total"></span>
+        </div>
+ 
+        <button type="button" id="receipt-close" class="closebutton">Close</button>
+    </dialog>
+
     <nav class="navbar">
         <a href="../../../index.html">
             <img src="../../Menu Items (Fixed)/Logo.png" class="logo" alt="Rest in Beans Cafe">
@@ -111,28 +131,28 @@
                         <span id="total-price">₱0</span>
                     </div>
 
-                    <form class="order-form">
+                    <form class="order-form" action="">
                         <label>
                             Name
-                            <input type="text" name="name" required>
+                            <input type="text" id="name" placeholder="Enter your name" required>
                         </label>
 
                         <label>
                             Email
-                            <input type="email" name="email" required>
+                            <input type="email" id="email" placeholder="Enter your email" required>
                         </label>
 
                         <label>
                             Contact Number
-                            <input type="tel" name="contact" required>
+                            <input type="tel" id="contact" placeholder="Enter your contact number" required>
                         </label>
 
                         <label>
                             Date
-                            <input type="date" name="date" required>
+                            <input type="date" id="date" required>
                         </label>
 
-                        <button type="submit">Place Order</button>
+                        <button type="submit" onclick="show()">Place Order</button>
                     </form>
                 </div>
 
