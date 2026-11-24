@@ -398,11 +398,19 @@ footer {
         font-size: 1.6rem;
     }
 
-    .tabs { padding: 0.7rem 0.5rem; gap: 0.4rem 0.5rem; }
-    .tabs a { padding: 0.35rem 0.7rem; font-size: 1.5rem; }
+    .tabs { 
+        padding: 0.7rem 0.5rem; gap: 0.4rem 0.5rem; 
+    }
+    .tabs a { 
+        padding: 0.35rem 0.7rem; font-size: 1.5rem; 
+    }
 
-    section { padding: 1.8rem 1rem 0; margin-bottom: 3rem; }
-    section h2 { margin-bottom: 1.8rem; font-size: 3.2rem; letter-spacing: 0.15rem; }
+    section { 
+        padding: 1.8rem 1rem 0; margin-bottom: 3rem; 
+            }
+    section h2 { 
+        margin-bottom: 1.8rem; font-size: 3.2rem; letter-spacing: 0.15rem; 
+               }
 
     .cards {
         grid-template-columns: repeat(2, 1fr);
