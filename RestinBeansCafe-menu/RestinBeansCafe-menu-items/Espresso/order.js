@@ -33,6 +33,8 @@ const totalPrice = document.getElementById("total-price");
         const orderForm = document.querySelector(".order-form");
         const dialog = document.getElementById("receipt-dialog");
         const receiptItems = document.getElementById("receipt-items");
+
+        window.addEventListener("pageshow", updateTotal);
  
         orderForm.addEventListener("submit", function (event) {
             event.preventDefault(); // stop the page from reloading
