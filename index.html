@@ -1,276 +1,225 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Rest in Beans</title>
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="index.js" defer></script>
+<meta charset="UTF-8">
+<title>Rest in Beans</title>
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="index.js" defer></script>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- google fonts, for libre baskerville -->
 
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Rouge+Script&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Rouge+Script&display=swap" rel="stylesheet">
+
 </head>
 
 <body id="top">
 
-    <!-- Navigation bar -->
-    <nav class="navbar">
-        <ul>
-            <li><img src="images/Logo.png" class="logo" alt="Rest in Beans logo"></li>
-            <li><a href="RestinBeansCafe-menu/menu.html">MENU</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-        </ul>
-    </nav>
+<!-- Navigation bar -->
+<nav class="navbar">
+    <ul>
+        <li><img src="images/Logo.png" class="logo" alt="Rest in Beans logo"></li>
+        <li><a href="RestinBeansCafe-menu/menu.html">MENU</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="RestinBeansCafe-menu/RestinBeansCafe-menu-items/Espresso/order.html">ORDER ONLINE</a></li>
+    </ul>
+</nav>
 
-    <main>
+<main>
 
-        <!-- Video and picture banner -->
-        <section class="banner">
+    <!-- Video and picture banner -->
 
-            <div class="banner_video">
-                <div class="video_overlay">
-                    <button class="button_discovermore">Discover more</button>
-                </div>
+    <section class="banner">
+    <div class="banner_video">
 
-                <video autoplay loop muted playsinline>
-                    <source src="images/Video.mp4">
-                </video>
-            </div>
+    <div class="video_overlay">
+        <button class="button_discovermore">Discover more</button>
+    </div>
 
-            <div class="banner_image">
-                <img src="images/banner1.png" alt="Rest in Beans banner">
-            </div>
+    <video autoplay loop muted playsinline>
+        <source src="images/Video.mp4">
+    </video>
+    </div>
 
-        </section>
+    <div class="banner_image">
+    <img src="images/banner1.png" alt="Rest in Beans banner">
+    </div>
 
-        <!-- Best Sellers -->
-        <section class="best_seller">
+    </section>
 
-            <h2 class="sellerheader">
-                BEST SELLERS
-                <i><img src="images/bestseller.png" class="bestseller_icon" alt=""></i>
-            </h2>
+    <!-- best seller -->
 
-            <div class="sellerban">
+    <section class="best_seller">
 
-                <div class="selector">
+        <h2 class="sellerheader">BEST SELLERS<i><img src="images/bestseller.png" class="bestseller_icon" alt=""></i></h2>
+        <div class="sellerban">
+            <div class="selector">
 
-                    <div class="carousel">
+                <div class="carousel">
 
-                        <div class="carousel-track">
-
-                            <div class="ProductCard">
-                                <img src="images/bestsellers/item1.png" alt="Caramel Macchiato">
-                                <h3 class="product_name">Caramel Macchiato</h3>
-                            </div>
-
-                            <div class="ProductCard">
-                                <img src="images/bestsellers/item2.png" alt="Cinnamon Latte">
-                                <h3 class="product_name">Cinnamon Latte</h3>
-                            </div>
-
-                            <div class="ProductCard">
-                                <img src="images/bestsellers/item3.png" alt="Sea Salt">
-                                <h3 class="product_name">Sea Salt</h3>
-                            </div>
-
-                            <div class="ProductCard">
-                                <img src="images/bestsellers/item4.png" alt="Choco Hazelnut Latte">
-                                <h3 class="product_name">Choco Hazelnut Latte</h3>
-                            </div>
-
-                            <div class="ProductCard">
-                                <img src="images/bestsellers/item5.png" alt="Samyang with Nori and Cheese">
-                                <h3 class="product_name">Samyang + Nori + Cheese</h3>
-                            </div>
-
-                            <div class="ProductCard">
-                                <img src="images/bestsellers/item6.png" alt="Samyang with Nori, Cheese, and Hungarian">
-                                <h3 class="product_name">Samyang + Nori + Cheese + Hungarian</h3>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="button_carousel">
-                    <button class="prev" aria-label="Previous">&#10094;</button>
-                    <button class="next" aria-label="Next">&#10095;</button>
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- Pastries showcase -->
-        <section class="product_showcase">
-
-            <div class="product_area">
-
-                <div>
-                    <img src="images/cookies.jpg" class="productshowcase1" alt="Pastries">
-                </div>
-
-                <div>
-                    <div class="product_heading">
-                        <h1>PASTRIES</h1>
-                    </div>
-
-                    <div>
-                        <p class="product_description">
-                            Explore our selections of pastries.
-                            Enjoy the sweet and warm taste of our freshly baked goods
-                        </p>
-                    </div>
-
-                    <div class="button_area">
-                        <a class="button" href="RestinBeansCafe-menu/menu.html">Order Online</a>
-                        <a class="button" href="RestinBeansCafe-menu/menu.html">Menu</a>
+                    <div class="carousel-track">
+                    <div class="ProductCard"><img src="images/bestsellers/item1.png" alt="Best seller 1"></div>
+                    <div class="ProductCard"><img src="images/bestsellers/item2.png" alt="Best seller 2"></div>
+                    <div class="ProductCard"><img src="images/bestsellers/item3.png" alt="Best seller 3"></div>
+                    <div class="ProductCard"><img src="images/bestsellers/item4.png" alt="Best seller 4"></div>
+                    <div class="ProductCard"><img src="images/bestsellers/item5.png" alt="Best seller 5"></div>
+                    <div class="ProductCard"><img src="images/bestsellers/item6.png" alt="Best seller 6"></div>
                     </div>
                 </div>
 
+
             </div>
-
-        </section>
-
-        <!-- Snacks showcase -->
-        <section class="product_showcase">
-
-            <div class="product_area">
-
-                <div>
-                    <div class="product_heading">
-                        <h1>SNACKS</h1>
-                    </div>
-
-                    <div>
-                        <p class="product_description">
-                            Explore a variety of snacks alongside your morning coffee.
-                        </p>
-                    </div>
-
-                    <div class="button_area">
-                        <a class="button" href="RestinBeansCafe-menu/menu.html">Order Online</a>
-                        <a class="button" href="RestinBeansCafe-menu/menu.html">Menu</a>
-                    </div>
+             <div class="button_carousel">
+                        <button class="prev" aria-label="Previous">&#10094;</button>
+                        <button class="next" aria-label="Next">&#10095;</button>
                 </div>
-
-                <div>
-                    <img src="images/Ramen.jpg" class="productshowcase1" alt="Snacks">
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- Drinks showcase -->
-        <section class="product_showcase">
-
-            <div class="product_area">
-
-                <div>
-                    <img src="images/drinks.png" class="productshowcase1" alt="Drinks">
-                </div>
-
-                <div>
-                    <div class="product_heading">
-                        <h1>DRINKS</h1>
-                    </div>
-
-                    <div>
-                        <p class="product_description">
-                            Feeling thirsty? Sleepy? Maybe a cup of coffee or soda can solve these problems for you.
-                            Explore our diverse selection of drinks
-                        </p>
-                    </div>
-
-                    <div class="button_area">
-                        <a class="button" href="RestinBeansCafe-menu/menu.html">Order Online</a>
-                        <a class="button" href="RestinBeansCafe-menu/menu.html">Menu</a>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer>
-
-        <div class="footer_area">
-
-            <div class="footer_section1">
-
-                <div>
-                    <img src="images/Logo.png" class="footer_logo" alt="Rest in Beans logo">
-                </div>
-
-                <div class="socmed_area">
-                    <a href="https://www.facebook.com/profile.php?id=61584630794768" target="_blank">
-                        <img src="images/footer/facebook.png" class="footer_socmed" alt="Facebook">
-                    </a>
-
-                    <a href="https://www.instagram.com/rest.in.beans/" target="_blank">
-                        <img src="images/footer/instagram.png" class="footer_socmed" alt="Instagram">
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="footer_section2">
-
-                <h1 class="footer_heading">Links</h1>
-
-                <ul class="footer_list">
-                    <li><a href="#top">Home</a></li>
-                    <li><a href="RestinBeansCafe-menu/menu.html">Menu</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-
-            </div>
-
-            <div class="footer_section2">
-
-                <h1 class="footer_heading">Menu</h1>
-
-                <ul class="footer_list">
-                    <li><a>Drinks</a></li>
-                    <li><a>Snack</a></li>
-                    <li><a>Pastries</a></li>
-                    <li><a>Samyung</a></li>
-                </ul>
-
-            </div>
-
-            <div class="footer_section2">
-
-                <h1 class="footer_heading">Contacts</h1>
-
-                <ul class="footer_list">
-                    <li><a>Contact Number : 09515422593</a></li>
-                    <li><a>Email Address : alkalinebenniepayer@gmail.com</a></li>
-                    <li><a>Address : 2777A Juan Luna St., Tondo, Gagalangin</a></li>
-                </ul>
-
-            </div>
-
         </div>
 
-    </footer>
+
+    </section>
+
+    <!-- product showcase -->
+
+    <section class="product_showcase">
+        <div class="product_area">
+                <div>
+                <img src="images/cookies.jpg" class="productshowcase1" alt="Pastries">
+                </div>
+                <div>
+                    <div  class="product_heading"><h1>PASTRIES</h1></div>
+
+                    <div>
+                        <p class="product_description">Explore our selections of pastries.
+                        Enjoy the  sweet and warm taste of our freshly baked goods </p>
+                    </div>
+
+                    <div class="button_area">
+                        <a class="button" href="RestinBeansCafe-menu/menu.html">Order Online</a>
+                        <a class="button" href="RestinBeansCafe-menu/menu.html#pastries">Menu</a>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+     <section class="product_showcase">
+        <div class="product_area">
+                   <div>
+                    <div  class="product_heading"><h1>SNACKS</h1></div>
+
+                    <div>
+                        <p class="product_description"> Explore a variety of snacks alongside your morning coffee.  </p>
+                    </div>
+
+                    <div class="button_area">
+                        <a class="button" href="RestinBeansCafe-menu/menu.html">Order Online</a>
+                        <a class="button" href="RestinBeansCafe-menu/menu.html#snacks">Menu</a>
+                    </div>
+                </div>
+                <div>
+                <img src="images/Ramen.jpg" class="productshowcase1" alt="Snacks">
+                </div>
+
+        </div>
+    </section>
+
+    <section class="product_showcase">
+        <div class="product_area">
+                <div>
+                <img src="images/drinks.png" class="productshowcase1" alt="Drinks">
+                </div>
+                <div>
+                    <div  class="product_heading"><h1>DRINKS</h1></div>
+
+                    <div>
+                        <p class="product_description">Feeling thirsty? Sleepy? Maybe a cup of coffee or soda can solve these problems for you. Explore our diverse selection of drinks </p>
+                    </div>
+
+                    <div class="button_area">
+                        <a class="button" href="RestinBeansCafe-menu/menu.html">Order Online</a>
+
+                           <div class="dropmenu">
+                            <div class="button">
+                                <a>Menu</a>
+                                <div class="dropdown_items">
+                                <a href="RestinBeansCafe-menu/menu.html#expresso">EXPRESSO</a>
+                                <a href="RestinBeansCafe-menu/menu.html#non-espresso">NON-EXPRESSO</a>
+                                <a href="RestinBeansCafe-menu/menu.html#blended">BLENDED</a>
+                                <a href="RestinBeansCafe-menu/menu.html#soda">SODA</a>
+                                
+                                </div>
+                            </div>
+                        
+                       </div>
+                        
+
+
+                    </div>
+                </div>
+        </div>
+    </section>
+
+
+
+</main>
+
+<!-- Start of Footer -->
+
+<footer>
+
+<div class="footer_area">
+    <div class="footer_section1">
+        <div>
+            <img src="images/Logo.png" class="footer_logo" alt="Rest in Beans logo">
+        </div>
+
+
+        <div class="socmed_area">
+            <a href="https://www.facebook.com/profile.php?id=61584630794768" target="_blank"><img src="images/footer/facebook.png" class="footer_socmed" alt="Facebook"></a>
+            <a href="https://www.instagram.com/rest.in.beans/" target="_blank"><img src="images/footer/instagram.png" class="footer_socmed" alt="Instagram"></a>
+        </div>
+    </div>
+
+    <div class="footer_section2">
+        <h1 class="footer_heading">Links</h1>
+
+        <ul class="footer_list">
+            <li><a href="#top">Home</a></li>
+            <li><a href="RestinBeansCafe-menu/menu.html">Menu</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="footer_section2">
+        <h1 class="footer_heading">Menu</h1>
+
+         <ul class="footer_list">
+            <li><a>Drinks</a></li>
+            <li><a>Snack</a></li>
+            <li><a>Pastries</a></li>
+            <li><a>Samyung</a></li>
+        </ul>
+    </div>
+
+    <div class="footer_section2">
+        <h1 class="footer_heading">Contacts</h1>
+
+        <ul class="footer_list">
+            <li><a>Contact Number : 09515422593</a></li>
+            <li><a>Email Address : alkalinebenniepayer@gmail.com</a></li>
+            <li><a>Address : 2777A Juan Luna St., Tondo, Gagalangin</a></li>
+        </ul>
+    </div>
+</div>
+
+</footer>
 
 </body>
 </html>

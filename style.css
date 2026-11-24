@@ -1,14 +1,10 @@
-
-/* ========================================
-   GLOBAL
-   ======================================== */
-
 * {
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 body {
@@ -16,66 +12,68 @@ body {
     padding: 0;
     width: 100%;
     overscroll-behavior: none;
+    scroll-behavior: smooth;
+
     background-color: #faeddf;
 
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr); 
     grid-template-rows: auto 1fr auto;
     grid-template-areas:
-        "header"
-        "main"
-        "footer";
+    "header"
+    "main"
+    "footer";
 }
 
-img,
-video {
+img, video {
     max-width: 100%;
 }
-
 .main {
     grid-area: main;
 }
+/* google fonts  */
 
 
-/* ========================================
-   NAVIGATION BAR
-   ======================================== */
+/* navigation bar */
 
 .navbar {
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    height: 7rem;
-    min-height: 7rem;
+    height: 10rem;
+    min-height: 10rem;
     width: 100%;
-
     background-color: #aa7a52;
     border-bottom: 2px solid black;
 }
 
-.navbar ul {
+.navbar ul{
     list-style-type: none;
-    padding: 0;
-    margin: 0;
-
-    font-size: 1.6rem;
-
+    padding: 0px;
+    margin: 0px;
+    font-size: 2.4rem;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
 
 .logo {
-    width: clamp(7rem, 10vw, 9rem);
+
+    width: clamp(7rem, 12vw, 12rem);
+
     min-height: auto;
     height: 100%;
-    margin-left: 0;
+
+    margin-left: 0rem;
     padding-inline: 1em;
     cursor: pointer;
 }
 
-.navbar a {
+
+.navbar a{
+
     color: black;
     text-decoration: none;
     padding: 5px;
@@ -84,10 +82,11 @@ video {
     user-select: none;
     cursor: pointer;
 
+
     font-family: "Libre Baskerville", serif;
     font-optical-sizing: auto;
     font-weight: 400;
-    font-style: normal;
+    font-style: normal
 }
 
 .navbar a:hover {
@@ -95,52 +94,54 @@ video {
     transition: 0.3s;
 }
 
+.orderlogo {
+    width: clamp(4rem, 8vw, 8rem);
+    height: auto;
+    margin-right: 1rem;
 
-/* ========================================
-   VIDEO AND IMAGE BANNER
-   ======================================== */
+}
+
+/*navigation style sheet ends here*/
+
+
+/*video & img banner*/
 
 .banner {
     display: grid;
     grid-template-columns: 3.5fr 1fr;
-
-    margin: 1rem;
-    margin-bottom: 1.5rem;
-
+    margin: 1.5em;
+    margin-bottom: 2rem;
     border: 4px solid black;
 }
 
+/* the video box is the anchor for the "Discover more" button */
 .banner_video {
     position: relative;
-
     display: grid;
     justify-items: center;
     align-items: center;
-
     border-right: 4px solid black;
     min-width: 0;
 }
 
 .video_overlay {
     position: absolute;
-    bottom: 1.5rem;
+    bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
-
     margin: 0;
     z-index: 1;
 }
 
-.video_overlay button {
-    background-color: #aa7a52;
+.video_overlay button{
+    background-color: #f5caa7;
     border: 2px solid black;
-
-    font-size: 1.5rem;
-    padding: 0.6rem 1.2rem;
-
+    font-size: 2em;
+    font-family: "Libre Baskerville", serif;
     cursor: pointer;
     border-radius: 15px;
     white-space: nowrap;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .video_overlay button:hover {
@@ -149,13 +150,13 @@ video {
 }
 
 .banner_video video {
-    width: 100%;
-    height: clamp(20rem, 38vw, 32rem);
-
-    object-fit: cover;
-    object-position: center;
-    display: block;
+  width: 100%;
+  height: clamp(20rem, 50vw, 45rem);
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
+
 
 .banner_image {
     display: grid;
@@ -165,34 +166,27 @@ video {
 }
 
 .banner_image img {
-    width: 100%;
-    height: clamp(20rem, 38vw, 32rem);
-
-    object-fit: cover;
-    object-position: center;
-    display: block;
+  width: 100%;
+  height: clamp(20rem, 50vw, 45rem);
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
-
-/* ========================================
-   BEST SELLERS
-   ======================================== */
+/*best seller*/
 
 .sellerheader {
-    font-size: clamp(2rem, 4vw, 3rem);
-
+    font-size: clamp(2rem, 6vw, 4rem);
     margin-left: clamp(1rem, 5vw, 6rem);
     letter-spacing: clamp(0.2rem, 1vw, 1rem);
-
     font-family: "Mr Dafoe", cursive;
     font-weight: 200;
     font-style: normal;
 }
 
 .bestseller_icon {
-    height: clamp(4rem, 8vw, 7rem);
+    height: clamp(6rem, 12vw, 11rem);
     width: auto;
-
     position: relative;
     top: 20px;
 }
@@ -202,9 +196,8 @@ video {
     display: grid;
 }
 
-.sellerban {
-    font-size: 2rem;
-
+.sellerban  {
+    font-size: 4rem;
     display: grid;
     justify-items: center;
     padding-inline: 1rem;
@@ -212,161 +205,104 @@ video {
 
 .selector {
     width: 100%;
-    max-width: 85rem;
+    max-width: 100rem;
 
     min-height: 0;
     height: auto;
 
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-
+    padding: 2rem;
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
 
     background-color: #aa7a52;
-    border-radius: 35px;
+    border-radius: 50px;
     border: 2px solid black;
+
 }
 
 .carousel {
     display: flex;
     flex-direction: row;
     align-items: center;
-
     width: 100%;
     overflow: hidden;
 }
 
+/* --visible and --gap are read by index.js too, so CSS and JS always agree */
 .carousel-track {
     --visible: 3;
-    --gap: 2rem;
+    --gap: 4rem;
 
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-
     gap: var(--gap);
-
     width: 100%;
     min-width: 0;
 
     transition: transform 0.5s ease;
 }
 
-/* Product cards */
-
-.ProductCard {
-    position: relative;
-
-    flex: 0 0 calc(
-        (100% - (var(--visible) - 1) * var(--gap))
-        / var(--visible)
-    );
-
-    aspect-ratio: 4 / 5;
-
-    overflow: hidden;
-    border-radius: 25px;
-
-    background-color: #5b3825;
-    border: 2px solid rgba(0, 0, 0, 0.4);
-
-    isolation: isolate;
-}
-
-.ProductCard img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    display: block;
-
-    transition: transform 0.4s ease;
-}
-
-/* Dark gradient behind the product name */
-
-.ProductCard::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background: linear-gradient(
-        to bottom,
-        transparent 45%,
-        rgba(0, 0, 0, 0.15) 60%,
-        rgba(0, 0, 0, 0.85) 100%
-    );
-
-    z-index: 1;
-    pointer-events: none;
-}
-
-/* Product name overlay */
-
-.product_name {
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    z-index: 2;
-
-    margin: 0;
-    padding: 1.5rem 1rem;
-
-    color: #fff5e9;
-
-    font-family: "Libre Baskerville", serif;
-    font-size: clamp(0.9rem, 1.4vw, 1.35rem);
-    font-weight: 700;
-
-    line-height: 1.4;
-    text-align: center;
-
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
-}
-
-/* Hover effect */
-
-.ProductCard:hover img {
-    transform: scale(1.06);
-}
-
-/* Carousel controls */
-
 .button_carousel {
     display: flex;
     justify-content: center;
     align-items: center;
-
     gap: 1rem;
-    width: 100%;
 
-    margin: 0 0 3rem;
+    width: 100%;
+    margin: 0 0 clamp(4rem, 10vw, 10rem);
 }
 
 .button_carousel button {
     background-color: #dd721a;
     border: 2px solid black;
-
-    font-size: 1.5rem;
-    padding: 0.5rem 1.2rem;
-
+    font-size: 2rem;
+    padding: 0.5rem 1.5rem;
     cursor: pointer;
     border-radius: 15px;
+
 }
 
 .button_carousel button:hover {
     transition: 0.3s;
     background-color: #dfd2c9;
+
 }
 
+/* card width = (track width - gaps) / number of visible cards */
+.ProductCard {
 
-/* ========================================
-   PRODUCT SHOWCASE
-   ======================================== */
+    background-color: orange;
+    border-radius: 50px;
+    flex: 0 0 calc((100% - (var(--visible) - 1) * var(--gap)) / var(--visible));
+    aspect-ratio: 28 / 37;
+    display: block;
+    overflow: hidden;
+
+}
+
+.ProductCard img{
+
+    background-color: orange;
+    border-radius: 50px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    overflow: hidden;
+
+}
+
+/*product showcase*/
+
+.product_heading {
+    font-family: "Cinzel Decorative", serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 2rem;
+  text-align: center;
+}
 
 .product_showcase {
     display: grid;
@@ -377,14 +313,12 @@ video {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
     justify-content: center;
     align-items: center;
 
-    margin: 3rem auto 5rem;
-    padding: 0 1.5rem;
-
-    gap: 2rem;
+    margin: 4rem auto clamp(4rem, 10vw, 20rem);
+    padding: 0 2rem;
+    gap: 3rem;
 
     max-width: 1200px;
     box-sizing: border-box;
@@ -396,31 +330,19 @@ video {
 }
 
 .productshowcase1 {
-    height: 23rem;
+    height: 30rem;
     width: auto;
     max-width: 100%;
-
     object-fit: cover;
     padding: 1rem;
+
     overflow: hidden;
 }
 
-.product_heading {
-    font-family: "Cinzel Decorative", serif;
-    font-weight: 200;
-    font-style: normal;
-
-    font-size: 1.6rem;
-    text-align: center;
-}
-
 .product_description {
-    font-size: 1.2rem;
-    line-height: 1.7;
-
+    font-size: 2rem;
     max-width: 100%;
-    width: 24rem;
-
+    width: 20rem;
     text-align: justify;
 }
 
@@ -428,20 +350,17 @@ video {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
     justify-content: center;
-
-    gap: 1rem;
+    gap: 2rem;
     padding: 1rem;
 }
+
 
 .button {
     border: 2px solid black;
     border-radius: 2rem;
-
-    font-size: 1.2rem;
-    padding: 0.75rem 1.25rem;
-
+    font-size: 2rem;
+    padding: 1rem;
     cursor: pointer;
 }
 
@@ -450,68 +369,88 @@ video {
     transition: 0.3s;
 }
 
+.dropmenu {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+}
 
-/* ========================================
-   FOOTER
-   ======================================== */
+.dropdown_items {
+  display: none;
+  position: absolute;
+  top: 100%;
+  min-width: 160px;
+  z-index: 1;
+  }
+
+.dropdown_items a {
+  background-color: beige;
+  color: black;
+  padding: 12px 16px;
+  border: black solid 2px;
+  border-radius: 20px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropmenu:hover .dropdown_items {
+    display: block;
+}
+
+.dropdown_items a:hover {
+    background-color: #d82626ce;
+    transition: 0.3s;
+}
+
+
+
+/*footer*/
 
 footer {
     background-color: #a9886c;
-
     display: flex;
     justify-content: center;
-
     grid-area: footer;
-}
-
-.footer_area {
-    margin: 20px;
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    justify-content: center;
-    align-items: flex-start;
-
-    gap: 2rem 4rem;
-
-    max-width: 100%;
 }
 
 .footer_list {
     list-style-type: none;
     margin: 0;
     padding: 0;
-
     font-size: 1.2rem;
 }
 
-.footer_list li {
-    margin-bottom: 20px;
+.footer_list li{
+   margin-bottom: 20px;
 }
 
-.footer_list a,
-.footer_list a:visited,
-.footer_list a:active,
-.footer_list a:focus {
-    color: rgb(48, 48, 48);
-    overflow-wrap: anywhere;
+.footer_list a, .footer_list a:visited, .footer_list a:active, .footer_list a:focus{
+   color: rgb(48, 48, 48);
+   overflow-wrap: anywhere; /* long email addresses wrap instead of overflowing */
 }
 
-.footer_list a:hover {
-    color: rgb(122, 121, 121);
-    cursor: pointer;
+.footer_list a:hover{
+   color: rgb(122, 121, 121);
+   cursor: pointer;
 }
 
 .footer_heading {
-    font-size: clamp(2rem, 4vw, 3rem);
-
+    font-size: clamp(2.4rem, 5vw, 60px);
     font-family: "Abril Fatface", serif;
     font-weight: 400;
     font-style: normal;
+    margin-bottom: 3rem;
+}
 
-    margin-bottom: 2rem;
+.footer_area {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem 4rem;
+    max-width: 100%;
 }
 
 .footer_section1 {
@@ -531,159 +470,35 @@ footer {
     width: auto;
 }
 
-.footer_socmed img:hover {
+.footer_socmed img:hover{
     cursor: pointer;
 }
 
 .socmed_area {
     display: flex;
-    gap: 3rem;
+    gap: 4rem;
+
 }
 
 .footer_section2 {
     display: flex;
     flex-direction: column;
-
     flex: 1 1 14rem;
     min-width: 0;
 }
 
-
-/* ========================================
-   ABOUT AND CONTACT FOOTER
-   ======================================== */
-
-footer:has(.footer-inner) {
-    padding: 3rem 4rem;
-
-    background-color: #a9886c;
-    border-top: 2px solid rgba(60, 35, 15, 0.35);
-
-    font-family: "Josefin Sans", sans-serif;
-}
-
-.footer-inner {
-    width: 100%;
-    max-width: 90rem;
-
-    margin: 0 auto;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
-    gap: 4rem;
-}
-
-.logo-col {
-    text-align: center;
-    flex-shrink: 0;
-}
-
-footer:has(.footer-inner) .footer-logo {
-    display: block;
-
-    height: 11rem;
-    width: auto;
-    max-width: 100%;
-
-    object-fit: contain;
-    margin: 0 auto;
-}
-
-.socials {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    gap: 2.5rem;
-}
-
-footer:has(.footer-inner) .socials img {
-    display: block;
-
-    height: 2.6rem;
-    width: auto;
-    max-width: 2.6rem;
-
-    object-fit: contain;
-}
-
-.footer-col {
-    min-width: 0;
-    flex: 1 1 10rem;
-
-    font-family: "Josefin Sans", sans-serif;
-}
-
-.footer-col h3 {
-    margin: 0 0 0.8rem;
-    padding-bottom: 0.4rem;
-
-    font-size: 3rem;
-    font-weight: 300;
-
-    border-bottom: 1px solid rgba(141, 104, 92, 0.35);
-}
-
-.footer-col ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    font-size: 1.15rem;
-}
-
-.footer-col li {
-    margin-bottom: 0.6rem;
-    overflow-wrap: anywhere;
-}
-
-.footer-col a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.footer-col a:hover {
-    color: #f9e8dc;
-    transition: 0.2s;
-}
-
-.footer-col.contacts {
-    flex: 1.5 1 18rem;
-}
-
-
-/* ========================================
-   LARGE TABLETS / SMALL LAPTOPS
-   ======================================== */
-
+/* Large tablets / small laptops: 2 cards in the carousel */
 @media (max-width: 1100px) {
-
-    .carousel-track {
-        --visible: 2;
-    }
-
-    .product_area {
-        gap: 1.5rem;
-    }
+    .carousel-track { --visible: 2; }
 }
 
-
-/* ========================================
-   TABLETS
-   ======================================== */
-
+/* Tablets and below */
 @media (max-width: 900px) {
-
-    html {
-        font-size: 90%;
-    }
+    html { font-size: 90%; }          /* everything in rem shrinks a bit */
 
     .banner {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr;   /* stack video and image */
     }
-
     .banner_video {
         border-right: none;
         border-bottom: 4px solid black;
@@ -692,95 +507,31 @@ footer:has(.footer-inner) .socials img {
     .navbar {
         height: auto;
         min-height: 0;
-
         flex-wrap: wrap;
         padding: 1rem 0;
     }
-
     .navbar ul {
-        font-size: 1.4rem;
-
+        font-size: 1.8rem;
         flex-wrap: wrap;
         justify-content: center;
-    }
-
-    .banner_video video,
-    .banner_image img {
-        height: clamp(20rem, 50vw, 32rem);
-    }
-
-
-    /* About and Contact footer tablet layout */
-
-    footer:has(.footer-inner) {
-        padding: 2rem 1.5rem;
-    }
-
-    .footer-inner {
-        flex-wrap: wrap;
-        justify-content: center;
-
-        gap: 2.5rem;
-    }
-
-    .logo-col {
-        flex-basis: 100%;
-    }
-
-    .footer-col {
-        flex: 1 1 12rem;
-    }
-
-    .footer-col.contacts {
-        flex: 1 1 100%;
     }
 }
 
-
-/* ========================================
-   MOBILE
-   ======================================== */
-
+/*Meida queries */
 @media (max-width: 600px) {
-
-    html {
-        font-size: 75%;
-    }
+    html { font-size: 75%; }
 
     .navbar {
         flex-direction: column;
         gap: 0.5rem;
     }
-
     .navbar ul {
-        font-size: 1.2rem;
-        justify-content: center;
-    }
-
-    .banner {
-        margin: 0.75rem;
-    }
-
-    .banner_video video,
-    .banner_image img {
-        height: 20rem;
-    }
-
-    .video_overlay {
-        bottom: 1rem;
-    }
-
-    .video_overlay button {
-        font-size: 1.2rem;
-    }
-
-    .sellerheader {
-        margin-left: 1rem;
+        font-size: 1.6rem;
     }
 
     .carousel-track {
         --visible: 1;
-        --gap: 1rem;
+        --gap: 2rem;
     }
 
     .selector {
@@ -788,110 +539,30 @@ footer:has(.footer-inner) .socials img {
         padding: 1rem;
     }
 
-    .ProductCard {
-        border-radius: 20px;
-    }
-
-    .product_name {
-        font-size: 1.2rem;
-        padding: 1.2rem 0.8rem;
-    }
-
     .product_area {
         flex-direction: column;
         text-align: center;
-
-        margin: 2rem auto 3rem;
-        gap: 1rem;
     }
-
-    .productshowcase1 {
-        height: 19rem;
-    }
-
     .product_description {
         width: 100%;
         max-width: 30rem;
     }
 
-    .button_area {
-        gap: 0.75rem;
-    }
-
     .footer_area {
         display: grid;
-
-        grid-template-columns: 1fr 1fr;
-
+        grid-template-columns: 1fr 1fr;   /* two columns */
         gap: 2rem 1rem;
-
         width: 100%;
         margin: 1.5rem 1rem;
     }
-
     .footer_section1 {
-        grid-column: 1 / -1;
+        grid-column: 1 / -1;              /* logo + socials span the full row */
     }
-
     .footer_section2:last-child {
-        grid-column: 1 / -1;
+        grid-column: 1 / -1;              /* Contacts spans the full row */
     }
-
     .footer_heading {
-        margin-bottom: 1rem;
+        margin-bottom: 1rem;              /* the 3rem gap is too tall on phones */
     }
-
-    .socmed_area {
-        gap: 2rem;
-    }
-
-
-    /* About and Contact footer phone layout */
-
-    footer:has(.footer-inner) {
-        padding: 1.5rem 1rem 3rem;
-    }
-
-    .footer-inner {
-        display: grid;
-
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-
-        gap: 2rem 1rem;
-    }
-
-    .logo-col {
-        grid-column: 1 / -1;
-    }
-
-    footer:has(.footer-inner) .footer-logo {
-        height: 7rem;
-    }
-
-    .socials {
-        gap: 2rem;
-    }
-
-    footer:has(.footer-inner) .socials img {
-        height: 2rem;
-        max-width: 2rem;
-    }
-
-    .footer-col {
-        min-width: 0;
-    }
-
-    .footer-col h3 {
-        font-size: 2rem;
-        margin-bottom: 0.8rem;
-    }
-
-    .footer-col ul {
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-
-    .footer-col.contacts {
-        grid-column: 1 / -1;
-    }
+    .socmed_area { gap: 2rem; }
 }
