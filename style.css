@@ -1,16 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
     width: 100%;
     overscroll-behavior: none;
-     scroll-behavior: smooth;
-    
+    scroll-behavior: smooth;
+
     background-color: #faeddf;
 
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr); 
     grid-template-rows: auto 1fr auto;
-    grid-template-areas: 
+    grid-template-areas:
     "header"
     "main"
     "footer";
@@ -28,7 +32,7 @@ img, video {
 /* navigation bar */
 
 .navbar {
-     
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -72,11 +76,11 @@ img, video {
     display: block;
     user-select: none;
     cursor: pointer;
-      
+
 
     font-family: "Libre Baskerville", serif;
     font-optical-sizing: auto;
-    font-weight: 40;
+    font-weight: 400;
     font-style: normal
 }
 
@@ -98,33 +102,41 @@ img, video {
     border: 4px solid black;
 }
 
+/* the video box is the anchor for the "Discover more" button */
+.banner_video {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    border-right: 4px solid black;
+    min-width: 0;
+}
+
 .video_overlay {
-    margin-top: 400px;
     position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    z-index: 1;
 }
 
 .video_overlay button{
-     background-color: #aa7a52;
+    background-color: #aa7a52;
     border: 2px solid black;
     font-size: 2em;
     cursor: pointer;
     border-radius: 15px;
+    white-space: nowrap;
 }
 
 .video_overlay button:hover {
     background-color: blanchedalmond;
 }
 
-.banner_video {
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    border-right: 4px solid black;
-}
-
 .banner_video video {
   width: 100%;
-  height: 45rem;
+  height: clamp(20rem, 50vw, 45rem);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -135,11 +147,12 @@ img, video {
     display: grid;
     justify-items: center;
     align-items: center;
+    min-width: 0;
 }
 
 .banner_image img {
   width: 100%;
-  height: 45rem;
+  height: clamp(20rem, 50vw, 45rem);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -148,12 +161,19 @@ img, video {
 /*best seller*/
 
 .sellerheader {
-        font-size: 4rem;
- margin-left: 6rem;
-  font-family: "Mr Dafoe", cursive;
-  font-weight: 200;
-  font-style: normal;
-  letter-spacing: 1rem;
+    font-size: clamp(2rem, 6vw, 4rem);
+    margin-left: clamp(1rem, 5vw, 6rem);
+    letter-spacing: clamp(0.2rem, 1vw, 1rem);
+    font-family: "Mr Dafoe", cursive;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.bestseller_icon {
+    height: clamp(6rem, 12vw, 11rem);
+    width: auto;
+    position: relative;
+    top: 20px;
 }
 
 .best_seller {
@@ -164,77 +184,84 @@ img, video {
 .sellerban  {
     font-size: 4rem;
     display: grid;
-    place-content: center;
+    justify-items: center;
+    padding-inline: 1rem;
 }
 
 .selector {
-      width: 100%;
+    width: 100%;
     max-width: 100rem;
-    box-sizing: border-box;
 
-    min-height: 40rem;
+    min-height: 0;
     height: auto;
 
     padding: 2rem;
-    margin-bottom: 10rem;
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
 
     background-color: #aa7a52;
     border-radius: 50px;
     border: 2px solid black;
-    
+
 }
 
 .carousel {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
     align-items: center;
     width: 100%;
     overflow: hidden;
 }
 
+/* --visible and --gap are read by index.js too, so CSS and JS always agree */
 .carousel-track {
+    --visible: 3;
+    --gap: 4rem;
+
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    gap: 4rem;
+    gap: var(--gap);
+    width: 100%;
+    min-width: 0;
 
     transition: transform 0.5s ease;
 }
 
 .button_carousel {
-     display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
 
     width: 100%;
-    margin-top: 10rem;
+    margin: 0 0 clamp(4rem, 10vw, 10rem);
 }
 
 .button_carousel button {
     background-color: #dd721a;
     border: 2px solid black;
-    font-size: 0.3em;
+    font-size: 2rem;
+    padding: 0.5rem 1.5rem;
     cursor: pointer;
     border-radius: 15px;
-    
+
 }
 
 .button_carousel button:hover {
     transition: 0.3s;
     background-color: #dfd2c9;
-    
+
 }
 
+/* card width = (track width - gaps) / number of visible cards */
 .ProductCard {
 
     background-color: orange;
     border-radius: 50px;
-    height: 37rem;
-    width: 28rem;
+    flex: 0 0 calc((100% - (var(--visible) - 1) * var(--gap)) / var(--visible));
+    aspect-ratio: 28 / 37;
     display: block;
     overflow: hidden;
 
@@ -244,18 +271,12 @@ img, video {
 
     background-color: orange;
     border-radius: 50px;
-    height: 37rem;
-    width: 28rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
     overflow: hidden;
 
-   
-}
-
-
-.button_carousel {
-    position: absolute;
-    margin-top:  38rem
 }
 
 /*product showcase*/
@@ -276,10 +297,11 @@ img, video {
 .product_area {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 
-    margin: 4rem auto 20rem;
+    margin: 4rem auto clamp(4rem, 10vw, 20rem);
     padding: 0 2rem;
     gap: 3rem;
 
@@ -295,6 +317,8 @@ img, video {
 .productshowcase1 {
     height: 30rem;
     width: auto;
+    max-width: 100%;
+    object-fit: cover;
     padding: 1rem;
 
     overflow: hidden;
@@ -350,8 +374,9 @@ footer {
    margin-bottom: 20px;
 }
 
-.footer_list a, a:visited, a:active, a:focus{
+.footer_list a, .footer_list a:visited, .footer_list a:active, .footer_list a:focus{
    color: rgb(48, 48, 48);
+   overflow-wrap: anywhere; /* long email addresses wrap instead of overflowing */
 }
 
 .footer_list a:hover{
@@ -360,9 +385,9 @@ footer {
 }
 
 .footer_heading {
-    font-size: 60px;
+    font-size: clamp(2.4rem, 5vw, 60px);
     font-family: "Abril Fatface", serif;
-    font-weight: 1px;
+    font-weight: 400;
     font-style: normal;
     margin-bottom: 3rem;
 }
@@ -371,20 +396,22 @@ footer {
     margin: 20px;
     display: flex;
     flex-direction: row;
-
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem 4rem;
+    max-width: 100%;
 }
 
 .footer_section1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 5rem;
 }
 
 .footer_logo {
-    min-height: 15rem;
-    height: 100%;
+    height: clamp(9rem, 14vw, 15rem);
     width: auto;
+    max-width: 100%;
 }
 
 .footer_socmed {
@@ -405,7 +432,86 @@ footer {
 .footer_section2 {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    min-width: 2rem;
+    flex: 1 1 14rem;
+    min-width: 0;
+}
 
+/* Large tablets / small laptops: 2 cards in the carousel */
+@media (max-width: 1100px) {
+    .carousel-track { --visible: 2; }
+}
+
+/* Tablets and below */
+@media (max-width: 900px) {
+    html { font-size: 90%; }          /* everything in rem shrinks a bit */
+
+    .banner {
+        grid-template-columns: 1fr;   /* stack video and image */
+    }
+    .banner_video {
+        border-right: none;
+        border-bottom: 4px solid black;
+    }
+
+    .navbar {
+        height: auto;
+        min-height: 0;
+        flex-wrap: wrap;
+        padding: 1rem 0;
+    }
+    .navbar ul {
+        font-size: 1.8rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/*Meida queries */
+@media (max-width: 600px) {
+    html { font-size: 75%; }
+
+    .navbar {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .navbar ul {
+        font-size: 1.6rem;
+    }
+
+    .carousel-track {
+        --visible: 1;
+        --gap: 2rem;
+    }
+
+    .selector {
+        border-radius: 25px;
+        padding: 1rem;
+    }
+
+    .product_area {
+        flex-direction: column;
+        text-align: center;
+    }
+    .product_description {
+        width: 100%;
+        max-width: 30rem;
+    }
+
+    .footer_area {
+        display: grid;
+        grid-template-columns: 1fr 1fr;   /* two columns */
+        gap: 2rem 1rem;
+        width: 100%;
+        margin: 1.5rem 1rem;
+    }
+    .footer_section1 {
+        grid-column: 1 / -1;              /* logo + socials span the full row */
+    }
+    .footer_section2:last-child {
+        grid-column: 1 / -1;              /* Contacts spans the full row */
+    }
+    .footer_heading {
+        margin-bottom: 1rem;              /* the 3rem gap is too tall on phones */
+    }
+    .socmed_area { gap: 2rem; }
 }

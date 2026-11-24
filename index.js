@@ -5,7 +5,14 @@ const items = document.querySelectorAll('.ProductCard');
 const selector = document.querySelector('.carousel-track');
 
 let currentindex = 0;
-const visible = 3;
+
+// How many cards are visible right now.
+// The number comes from the --visible CSS variable (3 on desktop, 2 on tablet, 1 on phone),
+// so the CSS and the JS always agree.
+function getVisible() {
+    const value = parseInt(getComputedStyle(selector).getPropertyValue('--visible'), 10);
+    return value || 3;
+}
 
 function updateCarousel() {
 
@@ -21,7 +28,7 @@ function updateCarousel() {
 
 next.addEventListener('click', function (){
 
-    const maxindex = items.length - visible;
+    const maxindex = items.length - getVisible();
 
     if (currentindex < maxindex) {
         currentindex++;
@@ -32,7 +39,7 @@ next.addEventListener('click', function (){
 
 prev.addEventListener('click', function (){
 
-    const maxindex = items.length - visible;
+    const maxindex = items.length - getVisible();
 
     if (currentindex <= 0) {
         currentindex = maxindex;
@@ -43,4 +50,12 @@ prev.addEventListener('click', function (){
     updateCarousel();
 })
 
-
+// When the window size changes (rotating a phone, resizing the window),
+// keep the carousel in a valid position and re-align it.
+window.addEventListener('resize', function () {
+    const maxindex = items.length - getVisible();
+    if (currentindex > maxindex) {
+        currentindex = maxindex;
+    }
+    updateCarousel();
+})

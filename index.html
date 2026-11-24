@@ -1,10 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Rest in Beans</title>
 <link rel="stylesheet" href="style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <script src="index.js" defer></script>
+<script src="index.js" defer></script>
 
 <!-- google fonts, for libre baskerville -->
 
@@ -18,21 +19,17 @@
 
 </head>
 
-<body>
-    
+<body id="top">
+
 <!-- Navigation bar -->
- <head>
-    <nav class="navbar">
+<nav class="navbar">
     <ul>
-        <li><img src="images/Logo.png" class="logo"></li>
+        <li><img src="images/Logo.png" class="logo" alt="Rest in Beans logo"></li>
         <li><a href="menu.html">MENU</a></li>
         <li><a href="about.html">ABOUT</a></li>
         <li><a href="contact.html">CONTACT</a></li>
     </ul>
 </nav>
-
-
- </head>
 
 <main>
 
@@ -45,13 +42,13 @@
         <button class="button_discovermore">Discover more</button>
     </div>
 
-    <video autoplay loop muted> 
+    <video autoplay loop muted playsinline>
         <source src="images/Video.mp4">
     </video>
     </div>
 
     <div class="banner_image">
-    <img src="images/banner1.png"></image>
+    <img src="images/banner1.png" alt="Rest in Beans banner">
     </div>
 
     </section>
@@ -60,31 +57,31 @@
 
     <section class="best_seller">
 
-        <h2 class="sellerheader">BEST SELLERS<i><img src="images/bestseller.png" height="170rem" width="auto"; style="position: relative; top: 20px;" ></i></h2>
+        <h2 class="sellerheader">BEST SELLERS<i><img src="images/bestseller.png" class="bestseller_icon" alt=""></i></h2>
         <div class="sellerban">
-            <div class="selector"> 
+            <div class="selector">
 
                 <div class="carousel">
-                
+
                     <div class="carousel-track">
-                    <div class="ProductCard"><img src="images/bestsellers/item1.png"></div>
-                    <div class="ProductCard"><img src="images/bestsellers/item2.png"></div>
-                    <div class="ProductCard"><img src="images/bestsellers/item3.png"></div>
-                    <div class="ProductCard"><img src="images/bestsellers/item4.png"></div>
-                    <div class="ProductCard"><img src="images/bestsellers/item5.png"></div>
-                    <div class="ProductCard"><img src="images/bestsellers/item6.png"></div>
+                    <div class="ProductCard"><img src="images/bestsellers/item1.png" alt="Best seller 1"></div>
+                    <div class="ProductCard"><img src="images/bestsellers/item2.png" alt="Best seller 2"></div>
+                    <div class="ProductCard"><img src="images/bestsellers/item3.png" alt="Best seller 3"></div>
+                    <div class="ProductCard"><img src="images/bestsellers/item4.png" alt="Best seller 4"></div>
+                    <div class="ProductCard"><img src="images/bestsellers/item5.png" alt="Best seller 5"></div>
+                    <div class="ProductCard"><img src="images/bestsellers/item6.png" alt="Best seller 6"></div>
                     </div>
                 </div>
 
-               
+
             </div>
              <div class="button_carousel">
-                        <button class="prev">&#10094;</button>
-                        <button class="next">&#10095;</button>
+                        <button class="prev" aria-label="Previous">&#10094;</button>
+                        <button class="next" aria-label="Next">&#10095;</button>
                 </div>
         </div>
 
-        
+
     </section>
 
     <!-- product showcase -->
@@ -92,13 +89,13 @@
     <section class="product_showcase">
         <div class="product_area">
                 <div>
-                <img src="images/cookies.jpg" class="productshowcase1">
+                <img src="images/cookies.jpg" class="productshowcase1" alt="Pastries">
                 </div>
                 <div>
                     <div  class="product_heading"><h1>PASTRIES</h1></div>
-                    
+
                     <div>
-                        <p class="product_description">Explore our selections of pastries. 
+                        <p class="product_description">Explore our selections of pastries.
                         Enjoy the  sweet and warm taste of our freshly baked goods </p>
                     </div>
 
@@ -114,7 +111,7 @@
         <div class="product_area">
                    <div>
                     <div  class="product_heading"><h1>SNACKS</h1></div>
-                    
+
                     <div>
                         <p class="product_description"> Explore a variety of snacks alongside your morning coffee.  </p>
                     </div>
@@ -125,20 +122,20 @@
                     </div>
                 </div>
                 <div>
-                <img src="images/Ramen.jpg" class="productshowcase1">
+                <img src="images/Ramen.jpg" class="productshowcase1" alt="Snacks">
                 </div>
-             
+
         </div>
     </section>
-    
+
     <section class="product_showcase">
         <div class="product_area">
                 <div>
-                <img src="images/drinks.png" class="productshowcase1">
+                <img src="images/drinks.png" class="productshowcase1" alt="Drinks">
                 </div>
                 <div>
                     <div  class="product_heading"><h1>DRINKS</h1></div>
-                    
+
                     <div>
                         <p class="product_description">Feeling thirsty? Sleepy? Maybe a cup of coffee or soda can solve these problems for you. Explore our diverse selection of drinks </p>
                     </div>
@@ -151,7 +148,7 @@
         </div>
     </section>
 
-    
+
 
 </main>
 
@@ -162,13 +159,13 @@
 <div class="footer_area">
     <div class="footer_section1">
         <div>
-            <img src="images/Logo.png" class="footer_logo">
+            <img src="images/Logo.png" class="footer_logo" alt="Rest in Beans logo">
         </div>
-        
-        
+
+
         <div class="socmed_area">
-            <a href="https://www.facebook.com/profile.php?id=61584630794768" target="_blank"><img src="images/footer/facebook.png" class="footer_socmed"></a>
-            <a href="https://www.instagram.com/rest.in.beans/" target="_blank"><img src="images/footer/instagram.png" class="footer_socmed"></a>
+            <a href="https://www.facebook.com/profile.php?id=61584630794768" target="_blank"><img src="images/footer/facebook.png" class="footer_socmed" alt="Facebook"></a>
+            <a href="https://www.instagram.com/rest.in.beans/" target="_blank"><img src="images/footer/instagram.png" class="footer_socmed" alt="Instagram"></a>
         </div>
     </div>
 
