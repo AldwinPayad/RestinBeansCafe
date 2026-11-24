@@ -548,7 +548,7 @@ footer {
 }
 
 .footer_list a:hover{
-   color: rgb(122, 121, 121);
+   color: #800000;
    cursor: pointer;
 }
 
