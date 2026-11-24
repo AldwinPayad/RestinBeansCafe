@@ -133,6 +133,7 @@ img, video {
 }
 
 .video_overlay button{
+    padding: 2em;
     background-color: #f5caa7;
     border: 2px solid black;
     font-size: 2em;
