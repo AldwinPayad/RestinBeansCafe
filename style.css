@@ -271,15 +271,14 @@ img, video {
 
 /* card width = (track width - gaps) / number of visible cards */
 .ProductCard {
-
     background-color: orange;
     border-radius: 50px;
     flex: 0 0 calc((100% - (var(--visible) - 1) * var(--gap)) / var(--visible));
     aspect-ratio: 28 / 37;
     display: block;
     overflow: hidden;
-
 }
+
 
 .ProductCard img{
 
@@ -568,10 +567,20 @@ footer {
         font-size: clamp(1.5rem, 5vw, 3rem);
     }
 
+    .productshowcase1 {
+        height: 28rem;
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
+        padding: 1rem;
+
+        overflow: hidden;
+    }
+
     .product_heading h1 {
     font-size: 2rem;
     margin: 0.5rem 0;
-}
+    }
 
     .product_description {
         width: 100%;
