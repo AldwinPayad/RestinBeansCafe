@@ -88,7 +88,7 @@ main {
 }
 
 .navbar a:hover {
-    color: brown;
+    color: #800000;
     transition: 0.3s;
 }
 
@@ -98,7 +98,6 @@ main {
     margin-right: 1rem;
 
 }
-/* ---------- Navigation bar ---------- */
 
 
 /* ---------- Category tabs ---------- */
