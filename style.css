@@ -89,7 +89,7 @@ img, video {
 }
 
 .navbar a:hover {
-    color: grey;
+    color: #800000;
     transition: 0.3s;
 }
 
