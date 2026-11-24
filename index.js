@@ -59,3 +59,23 @@ window.addEventListener('resize', function () {
     }
     updateCarousel();
 })
+
+// scroll to top
+
+const scrollBtn = document.getElementById("scrollBtn");
+
+window.onscroll = function() {
+  if (document.body.scrollTop > 2500 || document.documentElement.scrollTop > 2500) {
+    scrollBtn.style.display = "block";
+  } else {
+    scrollBtn.style.display = "none";
+  }
+};
+
+// When the user clicks the button, scroll to the top smoothly
+scrollBtn.addEventListener("click", function() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+})

@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 a {
@@ -12,8 +13,6 @@ body {
     padding: 0;
     width: 100%;
     overscroll-behavior: none;
-    scroll-behavior: smooth;
-
     background-color: #faeddf;
 
     display: grid;
@@ -403,6 +402,26 @@ img, video {
     transition: 0.3s;
 }
 
+#scrollBtn {
+  display: none; 
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  border: 2px solid black;
+  background-color: #dfa355;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+#scrollBtn:hover {
+  background-color: #333;
+  transition: 0.3s;
+}
+
 
 
 /*footer*/
@@ -497,7 +516,7 @@ footer {
     html { font-size: 90%; }          /* everything in rem shrinks a bit */
 
     .banner {
-        grid-template-columns: 1fr;   /* stack video and image */
+        grid-template-columns: 1fr;  
     }
     .banner_video {
         border-right: none;
