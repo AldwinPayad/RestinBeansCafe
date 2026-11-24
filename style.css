@@ -559,12 +559,25 @@ footer {
     }
 
     .product_area {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: nowrap;
         text-align: center;
     }
+
+    .product_heading {
+        font-size: clamp(1.5rem, 5vw, 3rem);
+    }
+
+    .product_heading h1 {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+}
+
     .product_description {
         width: 100%;
         max-width: 30rem;
+        font-size: 1.4rem;
+        text-align: center;
     }
 
     .footer_area {
