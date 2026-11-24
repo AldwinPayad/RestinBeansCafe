@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Rest in Beans</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Abril+Fatface&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        .contact-hero {
+            background: #aa7a52;
+            text-align: center;
+            padding: 5rem 2rem;
+            border-bottom: 2px solid black;
+        }
+
+        .contact-hero h1 {
+            font-family: "Cinzel Decorative", serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin: 0 0 1rem;
+        }
+
+        .contact-hero p {
+            font-family: "Libre Baskerville", serif;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.8;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact-content {
+            max-width: 1100px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .contact-heading {
+            text-align: center;
+            font-family: "Cinzel Decorative", serif;
+            color: #70452d;
+            font-size: clamp(1.5rem, 3vw, 2.3rem);
+            margin-bottom: 2rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: #e4c0a2;
+            border: 2px solid black;
+            border-radius: 18px;
+            padding: 2rem;
+            text-align: center;
+            font-family: "Libre Baskerville", serif;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-card h3 {
+            font-family: "Cinzel Decorative", serif;
+            color: #70452d;
+            font-size: 1.3rem;
+            margin-top: 0;
+        }
+
+        .contact-card p {
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+
+        .contact-card a {
+            color: #70452d;
+            font-weight: bold;
+        }
+
+        .contact-card a:hover {
+            color: #aa7a52;
+        }
+
+        .contact-highlight {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #aa7a52;
+            border: 2px solid black;
+            border-radius: 18px;
+            text-align: center;
+            font-family: "Libre Baskerville", serif;
+            line-height: 1.8;
+        }
+
+        .contact-highlight h2 {
+            font-family: "Abril Fatface", serif;
+            font-size: 2rem;
+            margin-top: 0;
+        }
+
+        @media (max-width: 600px) {
+            .contact-hero {
+                padding: 3rem 1.5rem;
+            }
+
+            .contact-content {
+                margin: 2.5rem auto;
+                padding: 0 1.2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <nav class="navbar">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img src="images/Logo.png" class="logo" alt="Rest in Beans logo">
+                </a>
+            </li>
+            <li><a href="RestinBeansCafe-menu/menu.html">MENU</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="contact-hero">
+            <h1>CONTACT US</h1>
+            <p>
+                Have questions or want to learn more about Rest in Beans?
+                Feel free to reach out to us through the contact details below.
+            </p>
+        </section>
+
+        <section class="contact-content">
+            <h2 class="contact-heading">Get in Touch</h2>
+
+            <div class="contact-grid">
+
+                <div class="contact-card">
+                    <h3>Phone Number</h3>
+                    <p>
+                        <a href="tel:09515422593">0951 542 2593</a>
+                    </p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>Email Address</h3>
+                    <p>
+                        <a href="mailto:alkalinebenniepayer@gmail.com">
+                            alkalinebenniepayer@gmail.com
+                        </a>
+                    </p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>Our Location</h3>
+                    <p>
+                        2777A Juan Luna St., Tondo, Gagalangin
+                    </p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>Social Media</h3>
+                    <p>
+                        <a href="https://www.facebook.com/profile.php?id=61584630794768"
+                           target="_blank" rel="noopener noreferrer">Facebook</a>
+                        <br>
+                        <a href="https://www.instagram.com/rest.in.beans/"
+                           target="_blank" rel="noopener noreferrer">Instagram</a>
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="contact-highlight">
+                <h2>We'd Love to Hear From You!</h2>
+                <p>
+                    Whether you have a question, feedback, or an inquiry,
+                    you can contact Rest in Beans through any of our
+                    available communication channels.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer_area">
+
+            <div class="footer_section1">
+                <div>
+                    <img src="images/Logo.png" class="footer_logo" alt="Rest in Beans logo">
+                </div>
+
+                <div class="socmed_area">
+                    <a href="https://www.facebook.com/profile.php?id=61584630794768"
+                       target="_blank" rel="noopener noreferrer">
+                        <img src="images/footer/facebook.png" class="footer_socmed" alt="Facebook">
+                    </a>
+
+                    <a href="https://www.instagram.com/rest.in.beans/"
+                       target="_blank" rel="noopener noreferrer">
+                        <img src="images/footer/instagram.png" class="footer_socmed" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer_section2">
+                <h1 class="footer_heading">Links</h1>
+                <ul class="footer_list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="RestinBeansCafe-menu/menu.html">Menu</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_section2">
+                <h1 class="footer_heading">Menu</h1>
+                <ul class="footer_list">
+                    <li>Drinks</li>
+                    <li>Snacks</li>
+                    <li>Pastries</li>
+                </ul>
+            </div>
+
+            <div class="footer_section2">
+                <h1 class="footer_heading">Contacts</h1>
+                <ul class="footer_list">
+                    <li>Contact Number: 09515422593</li>
+                    <li>Email: alkalinebenniepayer@gmail.com</li>
+                    <li>Address: 2777A Juan Luna St., Tondo, Gagalangin</li>
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
