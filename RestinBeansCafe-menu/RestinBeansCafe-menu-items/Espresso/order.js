@@ -16,6 +16,8 @@ const seniorDetails = document.getElementById("senior-details");
 const seniorNameField = document.getElementById("senior-name");
 const seniorIdField = document.getElementById("senior-id");
 
+const pickupDateTimeField = document.getElementById("pickup-datetime");
+
 const itemCheckboxes = document.querySelectorAll(
     '.order-item input[type="checkbox"]'
 );
@@ -55,6 +57,41 @@ if (pickedFromMenu) {
     });
 }
 
+// ---------- Date and time helpers ----------
+
+function getLocalDateTimeValue(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
+}
+
+function formatDateTime(date) {
+    return new Intl.DateTimeFormat("en-PH", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit"
+    }).format(date);
+}
+
+function updatePickupMinimum() {
+    pickupDateTimeField.min = getLocalDateTimeValue(new Date());
+}
+
+updatePickupMinimum();
+
+pickupDateTimeField.addEventListener("focus", updatePickupMinimum);
+pickupDateTimeField.addEventListener("change", function () {
+    pickupDateTimeField.setCustomValidity("");
+});
+
+// ---------- Currency and item helpers ----------
+
 function formatCurrency(amount) {
     const roundedAmount = Math.round(amount * 100) / 100;
 
@@ -78,6 +115,8 @@ function getItemPrice(checkbox) {
             .textContent.replace("₱", "")
     );
 }
+
+// ---------- Order totals ----------
 
 function calculateTotals() {
     let subtotal = 0;
@@ -109,6 +148,8 @@ function updateTotal() {
 
     discountSummaryRow.hidden = !seniorDiscountCheckbox.checked;
 }
+
+// ---------- Quantity controls ----------
 
 function updateQuantityDisplay(checkbox) {
     const row = checkbox.parentElement;
@@ -169,6 +210,8 @@ function createQuantityControls(checkbox) {
     row.insertBefore(controls, row.querySelector("span"));
     updateQuantityDisplay(checkbox);
 }
+
+// ---------- Order categories ----------
 
 function organizeCategories() {
     const children = Array.from(itemsBox.children);
@@ -273,6 +316,8 @@ function organizeCategories() {
     });
 }
 
+// ---------- Notes and senior discount ----------
+
 function updateNotesCounter() {
     notesCounter.textContent =
         notesField.value.length + " / 1000 characters";
@@ -287,6 +332,8 @@ function updateSeniorDiscountFields() {
 
     updateTotal();
 }
+
+// ---------- Receipt ----------
 
 function createReceipt() {
     const orderedItems = [];
@@ -317,6 +364,24 @@ function createReceipt() {
         return;
     }
 
+    const pickupDateTime = new Date(pickupDateTimeField.value);
+    const now = new Date();
+
+    pickupDateTimeField.setCustomValidity("");
+
+    if (
+        !pickupDateTimeField.value ||
+        Number.isNaN(pickupDateTime.getTime()) ||
+        pickupDateTime.getTime() <= now.getTime()
+    ) {
+        pickupDateTimeField.setCustomValidity(
+            "Please choose a pickup date and time in the future."
+        );
+        pickupDateTimeField.reportValidity();
+        return;
+    }
+
+    const orderPlaced = new Date();
     const totals = calculateTotals();
     const isSeniorDiscountApplied = seniorDiscountCheckbox.checked;
 
@@ -326,11 +391,17 @@ function createReceipt() {
     document.getElementById("receipt-email").textContent =
         document.getElementById("email").value;
 
-    document.getElementById("receipt-date").textContent =
-        document.getElementById("date").value;
+    document.getElementById("receipt-order-placed").textContent =
+        formatDateTime(orderPlaced);
+
+    document.getElementById("receipt-pickup-datetime").textContent =
+        formatDateTime(pickupDateTime);
 
     document.getElementById("receipt-address").textContent =
         document.getElementById("address").value;
+
+    document.getElementById("receipt-contact").textContent =
+        document.getElementById("contact").value;
 
     document.getElementById("receipt-payment").textContent =
         document.getElementById("payment-method").value;
@@ -386,6 +457,8 @@ function createReceipt() {
     dialog.showModal();
 }
 
+// ---------- Initialization and events ----------
+
 organizeCategories();
 
 notesField.addEventListener("input", updateNotesCounter);
@@ -393,6 +466,13 @@ seniorDiscountCheckbox.addEventListener("change", updateSeniorDiscountFields);
 
 orderForm.addEventListener("submit", function (event) {
     event.preventDefault();
+
+    updatePickupMinimum();
+
+    if (!orderForm.reportValidity()) {
+        return;
+    }
+
     createReceipt();
 });
 
