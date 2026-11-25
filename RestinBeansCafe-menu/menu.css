@@ -446,4 +446,68 @@ footer {
         margin-bottom: 1rem;              /* the 3rem gap is too tall on phones */
     }
     .socmed_area { gap: 2rem; }
+
+
+.photo {
+    position: relative;
+}
+
+.quantity-badge {
+    position: absolute;
+    top: 0.7rem;
+    left: 0.7rem;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    border: 2px solid #aa7a52;
+    border-radius: 50%;
+    background-color: #aa7a52;
+    color: #fff;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.quantity-controls {
+    position: absolute;
+    right: 0.7rem;
+    bottom: 0.7rem;
+    z-index: 6;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.quantity-button {
+    width: 2.8rem;
+    height: 2.8rem;
+    border: 2px solid #000;
+    border-radius: 0.35rem;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.quantity-minus {
+    background-color: #fff;
+    color: #000;
+}
+
+.quantity-plus {
+    background-color: #aa7a52;
+    color: #fff;
+}
+
+.quantity-minus:hover {
+    background-color: #e8e8e8;
+}
+
+.quantity-plus:hover {
+    background-color: #8d685c;
+}
+
 }
