@@ -634,3 +634,21 @@ footer {
         font-size: 1.3rem;
     }
 }
+
+.order-category-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+}
+
+.category-arrow {
+    margin-left: auto;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.order-category[open] .category-arrow {
+    transform: rotate(90deg);
+}

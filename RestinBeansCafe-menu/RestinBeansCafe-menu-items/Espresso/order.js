@@ -169,7 +169,7 @@ function organizeCategories() {
 
         const arrow = document.createElement("span");
         arrow.className = "category-arrow";
-        arrow.textContent = "⌄";
+        arrow.textContent = ">";
 
         categoryHeading.appendChild(title);
         categoryHeading.appendChild(arrow);
