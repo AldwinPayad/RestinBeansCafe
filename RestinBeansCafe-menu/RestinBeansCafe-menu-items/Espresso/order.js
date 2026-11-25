@@ -510,9 +510,17 @@ orderForm.addEventListener("submit", function (event) {
         return;
     }
 
+    confirmOrderDialog.showModal();
+});
+
+confirmOrderYes.addEventListener("click", function () {
+    confirmOrderDialog.close();
     createReceipt();
 });
 
+confirmOrderNo.addEventListener("click", function () {
+    confirmOrderDialog.close();
+});
 document.getElementById("receipt-close").addEventListener("click", function () {
     dialog.close();
     window.location.href = window.location.pathname;
