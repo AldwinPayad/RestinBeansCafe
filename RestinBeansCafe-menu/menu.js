@@ -4,17 +4,49 @@ const menuSearch = document.getElementById("menu-search");
 
 // ---------- Menu search ----------
 
+const originalCardOrder = new Map(
+    Array.from(menuCards).map(function (card, index) {
+        return [card, index];
+    })
+);
+
 menuSearch.addEventListener("input", function () {
     const query = menuSearch.value.trim().toLowerCase();
 
-    menuCards.forEach(function (card) {
-        const itemName = card.querySelector(".name")
-            .childNodes[0].textContent.trim().toLowerCase();
+    const cardGroups = document.querySelectorAll(".cards");
 
-        const matches = itemName.includes(query);
+    cardGroups.forEach(function (group) {
+        const cards = Array.from(group.children);
 
-        card.classList.toggle("search-match", query !== "" && matches);
-        card.classList.toggle("search-dimmed", query !== "" && !matches);
+        cards.forEach(function (card) {
+            const itemName = card.querySelector(".name")
+                .childNodes[0].textContent.trim().toLowerCase();
+
+            const matches = query !== "" && itemName.includes(query);
+
+            card.classList.toggle("search-match", matches);
+            card.classList.toggle("search-dimmed", query !== "" && !matches);
+        });
+
+        cards.sort(function (a, b) {
+            const aName = a.querySelector(".name")
+                .childNodes[0].textContent.trim().toLowerCase();
+            const bName = b.querySelector(".name")
+                .childNodes[0].textContent.trim().toLowerCase();
+
+            const aMatch = query !== "" && aName.includes(query);
+            const bMatch = query !== "" && bName.includes(query);
+
+            if (aMatch !== bMatch) {
+                return aMatch ? -1 : 1;
+            }
+
+            return originalCardOrder.get(a) - originalCardOrder.get(b);
+        });
+
+        cards.forEach(function (card) {
+            group.appendChild(card);
+        });
     });
 });
 
