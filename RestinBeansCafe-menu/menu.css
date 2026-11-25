@@ -525,3 +525,51 @@ footer {
     color: #8d685c;
     user-select: none;
 }
+
+/* ---------- Menu search ---------- */
+.menu-search {
+    padding: 1.5rem 2rem 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#menu-search {
+    width: min(100%, 24rem);
+    padding: 0.9rem 1.2rem;
+    border: 2px solid #8d685c;
+    border-radius: 0.6rem;
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #2b1b10;
+    font-family: "Libre Baskerville", serif;
+    font-size: 1rem;
+}
+
+#menu-search:focus {
+    outline: 2px solid #aa7a52;
+}
+
+.card.search-dimmed {
+    opacity: 0.25;
+    filter: grayscale(80%);
+    transform: scale(0.96);
+    transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+}
+
+.card.search-match {
+    opacity: 1;
+    filter: none;
+    transform: scale(1.04);
+    position: relative;
+    z-index: 2;
+    transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+}
+
+@media (max-width: 600px) {
+    .menu-search {
+        padding: 1rem 1rem 0;
+    }
+
+    #menu-search {
+        width: 100%;
+    }
+}

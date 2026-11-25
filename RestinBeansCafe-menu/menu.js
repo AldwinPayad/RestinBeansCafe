@@ -1,6 +1,22 @@
-
 const menuCards = document.querySelectorAll(".card");
 const cartButton = document.getElementById("cart-button");
+const menuSearch = document.getElementById("menu-search");
+
+// ---------- Menu search ----------
+
+menuSearch.addEventListener("input", function () {
+    const query = menuSearch.value.trim().toLowerCase();
+
+    menuCards.forEach(function (card) {
+        const itemName = card.querySelector(".name")
+            .childNodes[0].textContent.trim().toLowerCase();
+
+        const matches = itemName.includes(query);
+
+        card.classList.toggle("search-match", query !== "" && matches);
+        card.classList.toggle("search-dimmed", query !== "" && !matches);
+    });
+});
 
 const pickedItems = new Map();
 
