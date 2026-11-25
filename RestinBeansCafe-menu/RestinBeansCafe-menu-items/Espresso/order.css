@@ -754,3 +754,62 @@ footer {
         padding: 1.3rem;
     }
 }
+
+/* ---------- Order confirmation dialog ---------- */
+
+.confirm-order-dialog {
+    position: fixed;
+    inset: 0;
+    width: min(90vw, 30rem);
+    margin: auto;
+    padding: 2rem;
+    border: 2px solid #8d685c;
+    border-radius: 0.8rem;
+    background-color: #f8f1e7;
+    color: #4b3028;
+    text-align: center;
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.25);
+}
+
+.confirm-order-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.confirm-order-dialog h2 {
+    margin: 0 0 1rem;
+    font-family: "Libre Baskerville", serif;
+    font-size: 1.7rem;
+}
+
+.confirm-order-dialog p {
+    margin-bottom: 1.8rem;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1.2rem;
+}
+
+.confirm-order-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.confirm-order-actions button {
+    padding: 0.8rem 1.2rem;
+    border: 1px solid #8d685c;
+    border-radius: 0.5rem;
+    background-color: #8d685c;
+    color: white;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.confirm-order-actions button:first-child {
+    background-color: transparent;
+    color: #4b3028;
+}
+
+.confirm-order-actions button:hover {
+    opacity: 0.8;
+}

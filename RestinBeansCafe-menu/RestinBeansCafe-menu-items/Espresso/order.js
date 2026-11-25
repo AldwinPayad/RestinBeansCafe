@@ -6,6 +6,9 @@ const discountSummaryRow = document.getElementById("discount-summary-row");
 const itemsBox = document.querySelector(".items-box");
 const orderForm = document.querySelector(".order-form");
 const dialog = document.getElementById("receipt-dialog");
+const confirmOrderDialog = document.getElementById("confirm-order-dialog");
+const confirmOrderYes = document.getElementById("confirm-order-yes");
+const confirmOrderNo = document.getElementById("confirm-order-no");
 const receiptItems = document.getElementById("receipt-items");
 const liveOrderItems = document.getElementById("live-order-items");
 
@@ -504,14 +507,6 @@ orderForm.addEventListener("submit", function (event) {
     updatePickupMinimum();
 
     if (!orderForm.reportValidity()) {
-        return;
-    }
-
-    const confirmed = confirm(
-        "Are you sure about your final order?"
-    );
-
-    if (!confirmed) {
         return;
     }
 
