@@ -1,29 +1,23 @@
 
 const totalPrice = document.getElementById("total-price");
-const itemCheckboxes = document.querySelectorAll(
-    '.order-item input[type="checkbox"]'
-);
-
-const orderForm = document.querySelector(".order-form");
-const dialog = document.getElementById("receipt-dialog");
-const receiptItems = document.getElementById("receipt-items");
+const itemCheckboxes = document.querySelectorAll('.order-item input[type="checkbox"]');
 
 function updateTotal() {
     let total = 0;
 
     itemCheckboxes.forEach(function (checkbox) {
         if (checkbox.checked) {
-            const priceText = checkbox.parentElement.querySelector(".price").textContent;
-            total += Number(priceText.replace("₱", ""));
+            const priceText = checkbox.parentElement.querySelector('.price').textContent;
+            total += Number(priceText.replace('₱', ''));
         }
     });
 
-    totalPrice.textContent = "₱" + total;
+    totalPrice.textContent = '₱' + total;
+}
 
 itemCheckboxes.forEach(function (checkbox) {
-    checkbox.addEventListener("change", updateTotal);
+    checkbox.addEventListener('change', updateTotal);
 });
-
 
 const pickedFromMenu = new URLSearchParams(window.location.search).get("items");
 
@@ -35,9 +29,7 @@ if (pickedFromMenu) {
             return;
         }
 
-        const checkboxIndex =
-            menuIndex < 37 ? menuIndex : menuIndex + 4;
-
+        const checkboxIndex = menuIndex < 37 ? menuIndex : menuIndex + 4;
         const checkbox = itemCheckboxes[checkboxIndex];
 
         if (checkbox) {
@@ -45,6 +37,10 @@ if (pickedFromMenu) {
         }
     });
 }
+
+const orderForm = document.querySelector(".order-form");
+const dialog = document.getElementById("receipt-dialog");
+const receiptItems = document.getElementById("receipt-items");
 
 window.addEventListener("pageshow", updateTotal);
 
@@ -58,11 +54,8 @@ orderForm.addEventListener("submit", function (event) {
         if (!checkbox.checked) return;
 
         const label = checkbox.parentElement;
-
         const itemName = label.querySelector("span").textContent;
-        const price = Number(
-            label.querySelector(".price").textContent.replace("₱", "")
-        );
+        const price = Number(label.querySelector(".price").textContent.replace("₱", ""));
 
         let heading = label.previousElementSibling;
 
@@ -84,34 +77,23 @@ orderForm.addEventListener("submit", function (event) {
         return;
     }
 
-    document.getElementById("receipt-name").textContent =
-        document.getElementById("name").value;
-
-    document.getElementById("receipt-email").textContent =
-        document.getElementById("email").value;
-
-    document.getElementById("receipt-date").textContent =
-        document.getElementById("date").value;
-
-    document.getElementById("receipt-address").textContent =
-        document.getElementById("address").value;
+    document.getElementById("receipt-name").textContent = document.getElementById("name").value;
+    document.getElementById("receipt-email").textContent = document.getElementById("email").value;
+    document.getElementById("receipt-date").textContent = document.getElementById("date").value;
+    document.getElementById("receipt-address").textContent = document.getElementById("address").value;
 
     receiptItems.innerHTML = "";
 
     orderedItems.forEach(function (item) {
         const li = document.createElement("li");
-
         const left = document.createElement("span");
         const right = document.createElement("span");
 
-        left.textContent =
-            item.name + " (" + item.group.toLowerCase() + ")";
-
+        left.textContent = item.name + " (" + item.group.toLowerCase() + ")";
         right.textContent = "₱" + item.price;
 
         li.appendChild(left);
         li.appendChild(right);
-
         receiptItems.appendChild(li);
     });
 
