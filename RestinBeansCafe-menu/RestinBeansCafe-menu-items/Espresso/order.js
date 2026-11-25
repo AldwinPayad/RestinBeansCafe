@@ -507,6 +507,14 @@ orderForm.addEventListener("submit", function (event) {
         return;
     }
 
+    const confirmed = confirm(
+        "Are you sure about your final order?"
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
     createReceipt();
 });
 
