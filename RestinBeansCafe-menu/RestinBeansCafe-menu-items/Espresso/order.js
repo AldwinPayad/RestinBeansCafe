@@ -1,9 +1,20 @@
-
 const totalPrice = document.getElementById("total-price");
+const subtotalPrice = document.getElementById("subtotal-price");
+const discountPrice = document.getElementById("discount-price");
+const discountSummaryRow = document.getElementById("discount-summary-row");
+
 const itemsBox = document.querySelector(".items-box");
 const orderForm = document.querySelector(".order-form");
 const dialog = document.getElementById("receipt-dialog");
 const receiptItems = document.getElementById("receipt-items");
+
+const notesField = document.getElementById("additional-notes");
+const notesCounter = document.getElementById("notes-counter");
+
+const seniorDiscountCheckbox = document.getElementById("senior-discount");
+const seniorDetails = document.getElementById("senior-details");
+const seniorNameField = document.getElementById("senior-name");
+const seniorIdField = document.getElementById("senior-id");
 
 const itemCheckboxes = document.querySelectorAll(
     '.order-item input[type="checkbox"]'
@@ -44,8 +55,20 @@ if (pickedFromMenu) {
     });
 }
 
+function formatCurrency(amount) {
+    const roundedAmount = Math.round(amount * 100) / 100;
+
+    if (Number.isInteger(roundedAmount)) {
+        return "₱" + roundedAmount;
+    }
+
+    return "₱" + roundedAmount.toFixed(2);
+}
+
 function getItemName(checkbox) {
-    return checkbox.parentElement.querySelector(":scope > span:not(.price)").textContent;
+    return checkbox.parentElement.querySelector(
+        ":scope > span:not(.price)"
+    ).textContent;
 }
 
 function getItemPrice(checkbox) {
@@ -56,16 +79,35 @@ function getItemPrice(checkbox) {
     );
 }
 
-function updateTotal() {
-    let total = 0;
+function calculateTotals() {
+    let subtotal = 0;
 
     itemCheckboxes.forEach(function (checkbox) {
         if (checkbox.checked) {
-            total += getItemPrice(checkbox) * quantities.get(checkbox);
+            subtotal += getItemPrice(checkbox) * quantities.get(checkbox);
         }
     });
 
-    totalPrice.textContent = "₱" + total;
+    const hasSeniorDiscount = seniorDiscountCheckbox.checked;
+    const discount = hasSeniorDiscount
+        ? Math.round(subtotal * 0.20 * 100) / 100
+        : 0;
+
+    return {
+        subtotal: subtotal,
+        discount: discount,
+        total: subtotal - discount
+    };
+}
+
+function updateTotal() {
+    const totals = calculateTotals();
+
+    subtotalPrice.textContent = formatCurrency(totals.subtotal);
+    discountPrice.textContent = "−" + formatCurrency(totals.discount);
+    totalPrice.textContent = formatCurrency(totals.total);
+
+    discountSummaryRow.hidden = !seniorDiscountCheckbox.checked;
 }
 
 function updateQuantityDisplay(checkbox) {
@@ -149,15 +191,13 @@ function organizeCategories() {
         }
     });
 
-    const heading = itemsBox.querySelector("h3");
-
     itemsBox.querySelectorAll(".order-group, .order-item").forEach(
         function (element) {
             element.remove();
         }
     );
 
-    groups.forEach(function (group, index) {
+    groups.forEach(function (group) {
         const category = document.createElement("details");
         category.className = "order-category";
 
@@ -205,7 +245,7 @@ function organizeCategories() {
             return row.querySelector('input[type="checkbox"]').checked;
         });
 
-        category.open = hasSelectedItems
+        category.open = hasSelectedItems;
 
         category.addEventListener("toggle", function () {
             if (category.open) {
@@ -233,9 +273,23 @@ function organizeCategories() {
     });
 }
 
+function updateNotesCounter() {
+    notesCounter.textContent =
+        notesField.value.length + " / 1000 characters";
+}
+
+function updateSeniorDiscountFields() {
+    const isEnabled = seniorDiscountCheckbox.checked;
+
+    seniorDetails.hidden = !isEnabled;
+    seniorNameField.required = isEnabled;
+    seniorIdField.required = isEnabled;
+
+    updateTotal();
+}
+
 function createReceipt() {
     const orderedItems = [];
-    let total = 0;
 
     itemCheckboxes.forEach(function (checkbox) {
         if (!checkbox.checked) return;
@@ -254,17 +308,17 @@ function createReceipt() {
             name: getItemName(checkbox),
             group: groupName,
             quantity: quantity,
-            price: price,
             subtotal: subtotal
         });
-
-        total += subtotal;
     });
 
     if (orderedItems.length === 0) {
         alert("Please choose at least one item.");
         return;
     }
+
+    const totals = calculateTotals();
+    const isSeniorDiscountApplied = seniorDiscountCheckbox.checked;
 
     document.getElementById("receipt-name").textContent =
         document.getElementById("name").value;
@@ -277,6 +331,23 @@ function createReceipt() {
 
     document.getElementById("receipt-address").textContent =
         document.getElementById("address").value;
+
+    document.getElementById("receipt-payment").textContent =
+        document.getElementById("payment-method").value;
+
+    const receiptSeniorRow = document.getElementById("receipt-senior-row");
+    receiptSeniorRow.hidden = !isSeniorDiscountApplied;
+
+    if (isSeniorDiscountApplied) {
+        document.getElementById("receipt-senior").textContent =
+            seniorNameField.value + " (ID: " + seniorIdField.value + ")";
+    }
+
+    const receiptNotesRow = document.getElementById("receipt-notes-row");
+    const notes = notesField.value.trim();
+
+    receiptNotesRow.hidden = notes.length === 0;
+    document.getElementById("receipt-notes").textContent = notes;
 
     receiptItems.innerHTML = "";
 
@@ -293,19 +364,32 @@ function createReceipt() {
             item.group.toLowerCase() +
             ")";
 
-        right.textContent = "₱" + item.subtotal;
+        right.textContent = formatCurrency(item.subtotal);
 
         li.appendChild(left);
         li.appendChild(right);
         receiptItems.appendChild(li);
     });
 
-    document.getElementById("receipt-total").textContent = "₱" + total;
+    document.getElementById("receipt-subtotal").textContent =
+        formatCurrency(totals.subtotal);
+
+    const receiptDiscountRow = document.getElementById("receipt-discount-row");
+    receiptDiscountRow.hidden = !isSeniorDiscountApplied;
+
+    document.getElementById("receipt-discount").textContent =
+        "−" + formatCurrency(totals.discount);
+
+    document.getElementById("receipt-total").textContent =
+        formatCurrency(totals.total);
 
     dialog.showModal();
 }
 
 organizeCategories();
+
+notesField.addEventListener("input", updateNotesCounter);
+seniorDiscountCheckbox.addEventListener("change", updateSeniorDiscountFields);
 
 orderForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -319,4 +403,6 @@ document.getElementById("receipt-close").addEventListener("click", function () {
 
 window.addEventListener("pageshow", updateTotal);
 
+updateNotesCounter();
+updateSeniorDiscountFields();
 updateTotal();

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,9 +21,22 @@
             <p><span>Email:</span> <span id="receipt-email"></span></p>
             <p><span>Date:</span> <span id="receipt-date"></span></p>
             <p><span>Address:</span> <span id="receipt-address"></span></p>
+            <p><span>Payment Method:</span> <span id="receipt-payment"></span></p>
+            <p id="receipt-notes-row" hidden><span>Notes:</span> <span id="receipt-notes"></span></p>
+            <p id="receipt-senior-row" hidden><span>Senior Citizen:</span> <span id="receipt-senior"></span></p>
         </div>
 
         <ul id="receipt-items" class="receipt-items"></ul>
+
+        <div class="receipt-summary-row">
+            <span>SUBTOTAL:</span>
+            <span id="receipt-subtotal"></span>
+        </div>
+
+        <div class="receipt-summary-row" id="receipt-discount-row" hidden>
+            <span>Senior Citizen Discount (20%):</span>
+            <span id="receipt-discount"></span>
+        </div>
 
         <div class="receipt-total">
             <span>TOTAL:</span>
@@ -102,7 +114,7 @@
                     <label class="order-item"><input type="checkbox" name="item" value="blueberry"><span>Blueberry</span><span class="price">₱60</span></label>
                     <label class="order-item"><input type="checkbox" name="item" value="lychee"><span>Lychee</span><span class="price">₱60</span></label>
 
-                      <h4 class="order-group">ADDONS</h4>
+                    <h4 class="order-group">ADDONS</h4>
 
                     <label class="order-item"><input type="checkbox" name="item" value="1"><span>Espresso Shot</span><span class="price">₱30</span></label>
                     <label class="order-item"><input type="checkbox" name="item" value="2"><span>Cold Foam</span><span class="price">₱30</span></label>
@@ -131,7 +143,7 @@
                     <label class="order-item"><input type="checkbox" name="item" value="ensaymada"><span>Ensaymada</span><span class="price">₱40</span></label>
                     <label class="order-item"><input type="checkbox" name="item" value="cookie"><span>Cookie</span><span class="price">₱40</span></label>
 
-                     <h4 class="order-group">ADDONS</h4>
+                    <h4 class="order-group">ADDONS</h4>
 
                     <label class="order-item"><input type="checkbox" name="item" value="donut"><span>Ketchup</span><span class="price">₱30</span></label>
                     <label class="order-item"><input type="checkbox" name="item" value="brownie"><span>White Sauce</span><span class="price">₱30</span></label>
@@ -143,9 +155,21 @@
                 <div class="order-box">
                     <h3>Order Summary</h3>
 
-                    <div class="summary-total">
-                        <span>TOTAL PRICE:</span>
-                        <span id="total-price">₱0</span>
+                    <div class="summary-breakdown">
+                        <div class="summary-row">
+                            <span>SUBTOTAL:</span>
+                            <span id="subtotal-price">₱0</span>
+                        </div>
+
+                        <div class="summary-row" id="discount-summary-row" hidden>
+                            <span>SENIOR CITIZEN DISCOUNT (20%):</span>
+                            <span id="discount-price">−₱0</span>
+                        </div>
+
+                        <div class="summary-total">
+                            <span>TOTAL PRICE:</span>
+                            <span id="total-price">₱0</span>
+                        </div>
                     </div>
 
                     <form class="order-form" action="">
@@ -159,11 +183,10 @@
                             <input type="email" id="email" placeholder="Enter your email" required>
                         </label>
 
-                         <label>
+                        <label>
                             Address
                             <input type="text" id="address" placeholder="Enter your full address" required>
                         </label>
-
 
                         <label>
                             Contact Number
@@ -175,6 +198,58 @@
                             <input type="date" id="date" required>
                         </label>
 
+                        <label>
+                            Payment Method
+                            <select id="payment-method" required>
+                                <option value="" disabled selected>Select a payment method</option>
+                                <option value="Cash">Cash</option>
+                                <option value="GCash">GCash</option>
+                                <option value="Maya">Maya</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            Additional Notes / Special Instructions
+                            <textarea
+                                id="additional-notes"
+                                maxlength="1000"
+                                placeholder="Add any special instructions here..."
+                                rows="4"
+                            ></textarea>
+                            <span class="character-counter" id="notes-counter">0 / 1000 characters</span>
+                        </label>
+
+                        <div class="senior-discount-section">
+                            <label class="senior-checkbox-label">
+                                <input type="checkbox" id="senior-discount">
+                                Apply Senior Citizen Discount
+                            </label>
+
+                            <p class="senior-discount-note">
+                                For this website demonstration, the order is treated as being exclusively for the senior citizen.
+                            </p>
+
+                            <div id="senior-details" class="senior-details" hidden>
+                                <label>
+                                    Senior Citizen's Name
+                                    <input
+                                        type="text"
+                                        id="senior-name"
+                                        placeholder="Enter senior citizen's name"
+                                    >
+                                </label>
+
+                                <label>
+                                    Senior Citizen ID Number
+                                    <input
+                                        type="text"
+                                        id="senior-id"
+                                        placeholder="Enter senior citizen ID number"
+                                    >
+                                </label>
+                            </div>
+                        </div>
+
                         <button type="submit">Place Order</button>
                     </form>
                 </div>
@@ -183,65 +258,63 @@
         </section>
     </main>
 
-    
-        <footer>
-            <div class="footer_area">
+    <footer>
+        <div class="footer_area">
 
-                <div class="footer_section1">
-                    <div>
-                        <img src="../../../images/Logo.png" class="footer_logo" alt="Rest in Beans logo">
-                    </div>
-
-                    <div class="socmed_area">
-                        <a href="https://www.facebook.com/profile.php?id=61584630794768"
-                        target="_blank" rel="noopener noreferrer">
-                            <img src="../../../images/footer/facebook.png" class="footer_socmed" alt="Facebook">
-                        </a>
-
-                        <a href="https://www.instagram.com/rest.in.beans/"
-                        target="_blank" rel="noopener noreferrer">
-                            <img src="../../../images/footer/instagram.png" class="footer_socmed" alt="Instagram">
-                        </a>
-                    </div>
+            <div class="footer_section1">
+                <div>
+                    <img src="../../../images/Logo.png" class="footer_logo" alt="Rest in Beans logo">
                 </div>
 
-                <div class="footer_section2">
-                    <h1 class="footer_heading">Links</h1>
-                    <ul class="footer_list">
-                        <li><a href="../../../index.html">Home</a></li>
-                        <li><a href="../../../RestinBeansCafe-menu/menu.html">Menu</a></li>
-                        <li><a href="../../../about.html">About</a></li>
-                        <li><a href="../../../contact.html">Contact</a></li>
-                    </ul>
-                </div>
+                <div class="socmed_area">
+                    <a href="https://www.facebook.com/profile.php?id=61584630794768"
+                       target="_blank" rel="noopener noreferrer">
+                        <img src="../../../images/footer/facebook.png" class="footer_socmed" alt="Facebook">
+                    </a>
 
-                <div class="footer_section2">
-                    <h1 class="footer_heading">Menu</h1>
-                    <ul class="footer_list">
-                        <li><a href="../../../RestinBeansCafe-menu/menu.html#espresso">Drinks</a></li>
-                        <li><a href="../../../RestinBeansCafe-menu/menu.html#snacks">Snacks</a></li>
-                        <li><a href="../../../RestinBeansCafe-menu/menu.html#pastries">Pastries</a></li>
-                        <li><a href="../../../RestinBeansCafe-menu/menu.html#samyang">Samyang</a></li>
-                    </ul>
+                    <a href="https://www.instagram.com/rest.in.beans/"
+                       target="_blank" rel="noopener noreferrer">
+                        <img src="../../../images/footer/instagram.png" class="footer_socmed" alt="Instagram">
+                    </a>
                 </div>
-
-                <div class="footer_section2">
-                    <h1 class="footer_heading">Contacts</h1>
-                    <ul class="footer_list">
-                        <li><a href="tel:09515422593">Contact Number: 0951 542 2593</a></li>
-                        <li><a href="mailto:alkalinebenniepayer@gmail.com">Email: alkalinebenniepayer@gmail.com</a></li>
-                        <li>
-                            <a href="https://maps.app.goo.gl/7FL7CKFWvZQ9zd1f7"
-                            target="_blank" rel="noopener noreferrer">
-                                Address: 1239 Solis St, Tondo, Manila, Metro Manila
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
             </div>
-        </footer>
 
+            <div class="footer_section2">
+                <h1 class="footer_heading">Links</h1>
+                <ul class="footer_list">
+                    <li><a href="../../../index.html">Home</a></li>
+                    <li><a href="../../../RestinBeansCafe-menu/menu.html">Menu</a></li>
+                    <li><a href="../../../about.html">About</a></li>
+                    <li><a href="../../../contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_section2">
+                <h1 class="footer_heading">Menu</h1>
+                <ul class="footer_list">
+                    <li><a href="../../../RestinBeansCafe-menu/menu.html#espresso">Drinks</a></li>
+                    <li><a href="../../../RestinBeansCafe-menu/menu.html#snacks">Snacks</a></li>
+                    <li><a href="../../../RestinBeansCafe-menu/menu.html#pastries">Pastries</a></li>
+                    <li><a href="../../../RestinBeansCafe-menu/menu.html#samyang">Samyang</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_section2">
+                <h1 class="footer_heading">Contacts</h1>
+                <ul class="footer_list">
+                    <li><a href="tel:09515422593">Contact Number: 0951 542 2593</a></li>
+                    <li><a href="mailto:alkalinebenniepayer@gmail.com">Email: alkalinebenniepayer@gmail.com</a></li>
+                    <li>
+                        <a href="https://maps.app.goo.gl/7FL7CKFWvZQ9zd1f7"
+                           target="_blank" rel="noopener noreferrer">
+                            Address: 1239 Solis St, Tondo, Manila, Metro Manila
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </footer>
 
     <script src="order.js"></script>
 

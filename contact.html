@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -164,6 +163,13 @@
         .form-group textarea {
             min-height: 180px;
             resize: vertical;
+        }
+
+        .character-counter {
+            margin: 0;
+            text-align: right;
+            color: #70452d;
+            font-size: 0.85rem;
         }
 
         .contact-form button {
@@ -340,8 +346,10 @@
                                 id="message"
                                 name="message"
                                 placeholder="Write your message here..."
+                                maxlength="1000"
                                 required
                             ></textarea>
+                            <p class="character-counter" id="message-counter">0 / 1000 characters</p>
                         </div>
 
                         <button type="submit">Submit</button>
@@ -416,6 +424,15 @@
     <script>
         const contactForm = document.querySelector(".contact-form");
         const formStatus = document.querySelector("#form-status");
+        const messageField = document.querySelector("#message");
+        const messageCounter = document.querySelector("#message-counter");
+
+        function updateMessageCounter() {
+            messageCounter.textContent =
+                messageField.value.length + " / 1000 characters";
+        }
+
+        messageField.addEventListener("input", updateMessageCounter);
 
         contactForm.addEventListener("submit", function (event) {
             event.preventDefault();
@@ -429,6 +446,7 @@
                 "Your message was recorded for this website demonstration. It has not been sent to the café.";
 
             contactForm.reset();
+            updateMessageCounter();
         });
     </script>
 
