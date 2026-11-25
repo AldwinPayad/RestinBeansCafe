@@ -635,20 +635,34 @@ footer {
     }
 }
 
+.order-category[open] .category-arrow {
+    transform: none;
+}
+
+.items-box {
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 68vh;
+    min-height: 38rem;
+}
+
+.order-category {
+    display: block;
+    width: 100%;
+    flex-shrink: 0;
+}
+
 .order-category-heading {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    cursor: pointer;
+    min-height: 3.5rem;
+    white-space: normal;
+    overflow-wrap: anywhere;
 }
 
-.category-arrow {
-    margin-left: auto;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.order-category[open] .category-arrow {
-    transform: rotate(90deg);
+.order-category-content {
+    display: block;
 }
