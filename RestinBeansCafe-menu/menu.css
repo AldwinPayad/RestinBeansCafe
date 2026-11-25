@@ -446,7 +446,7 @@ footer {
         margin-bottom: 1rem;              /* the 3rem gap is too tall on phones */
     }
     .socmed_area { gap: 2rem; }
-
+}
 
 .photo {
     position: relative;
@@ -508,6 +508,4 @@ footer {
 
 .quantity-plus:hover {
     background-color: #8d685c;
-}
-
 }

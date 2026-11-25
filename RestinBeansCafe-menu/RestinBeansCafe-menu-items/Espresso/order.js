@@ -45,7 +45,7 @@ if (pickedFromMenu) {
 }
 
 function getItemName(checkbox) {
-    return checkbox.parentElement.querySelector("span").textContent;
+    return checkbox.parentElement.querySelector(":scope > span:not(.price)").textContent;
 }
 
 function getItemPrice(checkbox) {
