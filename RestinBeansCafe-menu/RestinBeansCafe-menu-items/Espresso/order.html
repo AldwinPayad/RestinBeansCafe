@@ -22,6 +22,7 @@
             <p><span>Order Placed:</span> <span id="receipt-order-placed"></span></p>
             <p><span>Pickup Date &amp; Time:</span> <span id="receipt-pickup-datetime"></span></p>
             <p><span>Address:</span> <span id="receipt-address"></span></p>
+            <p><span>Contact Number:</span> <span id="receipt-contact"></span></p>
             <p><span>Payment Method:</span> <span id="receipt-payment"></span></p>
             <p id="receipt-notes-row" hidden><span>Notes:</span> <span id="receipt-notes"></span></p>
             <p id="receipt-senior-row" hidden><span>Senior Citizen:</span> <span id="receipt-senior"></span></p>
@@ -176,27 +177,27 @@
                     <form class="order-form" action="">
                         <label>
                             Name
-                            <input type="text" id="name" placeholder="Enter your name" required>
+                            <input type="text" id="name" maxlength="50" placeholder="Enter your name" required>
                         </label>
 
                         <label>
                             Email
-                            <input type="email" id="email" placeholder="Enter your email" required>
+                            <input type="email" id="email" maxlength="254" placeholder="Enter your email" required>
                         </label>
 
                         <label>
                             Address
-                            <input type="text" id="address" placeholder="Enter your full address" required>
+                            <input type="text" id="address" maxlength="150" placeholder="Enter your full address" required>
                         </label>
 
                         <label>
                             Contact Number
-                            <input type="tel" id="contact" placeholder="Enter your contact number" required>
+                            <input type="tel" id="contact" maxlength="20" placeholder="Enter your contact number" required>
                         </label>
 
                         <label>
-                            Date
-                            <input type="date" id="date" required>
+                            Pickup Date &amp; Time
+                            <input type="datetime-local" id="pickup-datetime" required>
                         </label>
 
                         <label>
@@ -236,6 +237,7 @@
                                     <input
                                         type="text"
                                         id="senior-name"
+                                        maxlength="50"
                                         placeholder="Enter senior citizen's name"
                                     >
                                 </label>
@@ -245,6 +247,7 @@
                                     <input
                                         type="text"
                                         id="senior-id"
+                                        maxlength="30"
                                         placeholder="Enter senior citizen ID number"
                                     >
                                 </label>
