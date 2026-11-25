@@ -813,3 +813,33 @@ footer {
 .confirm-order-actions button:hover {
     opacity: 0.8;
 }
+/* ---------- Debug test button ---------- */
+
+.customer-details-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.customer-details-heading h3 {
+    margin: 0;
+}
+
+.debug-fill-button {
+    flex-shrink: 0;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid #8d685c;
+    border-radius: 0.4rem;
+    background-color: transparent;
+    color: #8d685c;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.debug-fill-button:hover {
+    background-color: #8d685c;
+    color: white;
+}

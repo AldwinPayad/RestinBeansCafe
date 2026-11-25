@@ -498,6 +498,45 @@ function createReceipt() {
 
 organizeCategories();
 
+// ---------- Debug test autofill ----------
+
+document.getElementById("debug-fill-button").addEventListener("click", function () {
+    document.getElementById("name").value = "Test Customer";
+    document.getElementById("email").value = "test@example.com";
+    document.getElementById("address").value = "123 Test Street, Manila";
+    document.getElementById("contact").value = "09170000000";
+    document.getElementById("payment-method").value = "GCash";
+
+    const pickupTime = new Date();
+    pickupTime.setHours(pickupTime.getHours() + 1);
+    pickupDateTimeField.value = getLocalDateTimeValue(pickupTime);
+
+    notesField.value = "This is a test order.";
+    updateNotesCounter();
+
+    seniorDiscountCheckbox.checked = true;
+    seniorNameField.value = "Test Senior Citizen";
+    seniorIdField.value = "TEST-123456";
+
+    updateSeniorDiscountFields();
+
+    itemCheckboxes.forEach(function (checkbox) {
+        checkbox.checked = false;
+        quantities.set(checkbox, 0);
+        updateQuantityDisplay(checkbox);
+    });
+
+    const testItem = itemCheckboxes[0];
+
+    if (testItem) {
+        testItem.checked = true;
+        quantities.set(testItem, 1);
+        updateQuantityDisplay(testItem);
+    }
+
+    updateTotal();
+});
+
 notesField.addEventListener("input", updateNotesCounter);
 seniorDiscountCheckbox.addEventListener("change", updateSeniorDiscountFields);
 
