@@ -654,6 +654,11 @@ footer {
         flex-shrink: 0;
     }
 
+    .video_overlay button{
+    font-size: 0.5em;
+}
+
+
     .button_area {
     display: flex;
     flex-direction: row;
