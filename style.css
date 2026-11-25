@@ -313,22 +313,31 @@ img, video {
 }
 
 /* Tooltip on product card */
+/* Tooltip on product card */
 .hover-text {
     position: absolute;
     z-index: 2;
     left: 50%;
     bottom: 50%;
     transform: translate(-50%, -10px);
-    color: #f8f8f8;
-    background-color: #33333374;
-    padding: 10px 15px;
-    border-radius: 7px;
+
+    color: #fff4e6;
+    background-color: rgba(48, 30, 23, 0.72);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    padding: 14px 18px;
+    border: 1px solid rgba(255, 230, 200, 0.25);
+    border-radius: 10px;
+
     max-width: 25rem;
     width: max-content;
-    font-size: 1.9rem;
-    line-height: 1.4;
+
+    font-family: "Libre Baskerville", serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
     text-align: center;
-    white-space: normal;
 
     opacity: 0;
     visibility: hidden;
@@ -336,7 +345,7 @@ img, video {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* show only when the card is hovered / focused */
+/* Show only when hovered / focused */
 .product-link:hover .hover-text,
 .product-link:focus-visible .hover-text {
     opacity: 1;
