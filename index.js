@@ -6,24 +6,15 @@ const selector = document.querySelector('.carousel-track');
 
 let currentindex = 0;
 
-// Get the number of currently visible cards from CSS
+// How many cards are visible right now.
+// The number comes from the --visible CSS variable (3 on desktop, 2 on tablet, 1 on phone),
+// so the CSS and the JS always agree.
 function getVisible() {
-    const value = parseInt(
-        getComputedStyle(selector).getPropertyValue('--visible'),
-        10
-    );
-
-    return value || 1;
+    const value = parseInt(getComputedStyle(selector).getPropertyValue('--visible'), 10);
+    return value || 3;
 }
 
-// Get the maximum starting index without leaving empty spaces
-function getMaxIndex() {
-    return Math.max(0, items.length - getVisible());
-}
-
-// Move the carousel
 function updateCarousel() {
-    if (!items.length) return;
 
     const firstItem = items[0].getBoundingClientRect();
     const currentItem = items[currentindex].getBoundingClientRect();
@@ -31,40 +22,43 @@ function updateCarousel() {
     const distance = currentItem.left - firstItem.left;
 
     selector.style.transform = `translateX(-${distance}px)`;
+
 }
 
-// Next button
-next.addEventListener('click', function () {
-    const maxindex = getMaxIndex();
+
+next.addEventListener('click', function (){
+
+    const maxindex = items.length - getVisible();
 
     if (currentindex < maxindex) {
         currentindex++;
+    } else { currentindex = 0;}
+
+    updateCarousel();
+})
+
+prev.addEventListener('click', function (){
+
+    const maxindex = items.length - getVisible();
+
+    if (currentindex <= 0) {
+        currentindex = maxindex;
     } else {
-        currentindex = 0;
+        currentindex--;
     }
 
     updateCarousel();
-});
+})
 
-// Previous button
-prev.addEventListener('click', function () {
-    const maxindex = getMaxIndex();
-
-    if (currentindex > 0) {
-        currentindex--;
-    } else {
+// When the window size changes (rotating a phone, resizing the window),
+// keep the carousel in a valid position and re-align it.
+window.addEventListener('resize', function () {
+    const maxindex = items.length - getVisible();
+    if (currentindex > maxindex) {
         currentindex = maxindex;
     }
-
     updateCarousel();
-});
-
-// Recalculate position when screen size changes
-window.addEventListener('resize', function () {
-    currentindex = Math.min(currentindex, getMaxIndex());
-
-    requestAnimationFrame(updateCarousel);
-});
+})
 
 // Initial positioning
 window.addEventListener('load', updateCarousel);
