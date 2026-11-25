@@ -72,7 +72,9 @@ const totalPrice = document.getElementById("total-price");
             document.getElementById("receipt-name").textContent = document.getElementById("name").value;
             document.getElementById("receipt-email").textContent = document.getElementById("email").value;
             document.getElementById("receipt-date").textContent = document.getElementById("date").value;
- 
+        document.getElementById("receipt-address").textContent = document.getElementById("address").value;
+
+                
             receiptItems.innerHTML = "";
             orderedItems.forEach(function (item) {
                 const li = document.createElement("li");
