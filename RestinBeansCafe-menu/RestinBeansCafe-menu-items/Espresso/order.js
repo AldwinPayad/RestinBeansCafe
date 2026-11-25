@@ -205,7 +205,7 @@ function organizeCategories() {
             return row.querySelector('input[type="checkbox"]').checked;
         });
 
-        category.open = hasSelectedItems || index === 0;
+        category.open = hasSelectedItems
 
         category.addEventListener("toggle", function () {
             if (category.open) {
