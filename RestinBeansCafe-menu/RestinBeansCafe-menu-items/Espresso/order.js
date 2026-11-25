@@ -7,6 +7,7 @@ const itemsBox = document.querySelector(".items-box");
 const orderForm = document.querySelector(".order-form");
 const dialog = document.getElementById("receipt-dialog");
 const receiptItems = document.getElementById("receipt-items");
+const liveOrderItems = document.getElementById("live-order-items");
 
 const notesField = document.getElementById("additional-notes");
 const notesCounter = document.getElementById("notes-counter");
@@ -139,6 +140,37 @@ function calculateTotals() {
     };
 }
 
+function updateLiveOrder() {
+    liveOrderItems.innerHTML = "";
+
+    itemCheckboxes.forEach(function (checkbox) {
+        if (!checkbox.checked) return;
+
+        const quantity = quantities.get(checkbox);
+        const price = getItemPrice(checkbox);
+        const category = checkbox.parentElement.closest(".order-category");
+
+        const groupName = category
+            ? category.querySelector("summary span").textContent
+            : "";
+
+        const li = document.createElement("li");
+        const left = document.createElement("span");
+        const right = document.createElement("span");
+
+        left.textContent =
+            getItemName(checkbox) +
+            " × " +
+            quantity;
+
+        right.textContent = formatCurrency(price * quantity);
+
+        li.appendChild(left);
+        li.appendChild(right);
+        liveOrderItems.appendChild(li);
+    });
+}
+
 function updateTotal() {
     const totals = calculateTotals();
 
@@ -147,6 +179,8 @@ function updateTotal() {
     totalPrice.textContent = formatCurrency(totals.total);
 
     discountSummaryRow.hidden = !seniorDiscountCheckbox.checked;
+
+    updateLiveOrder();
 }
 
 // ---------- Quantity controls ----------

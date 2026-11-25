@@ -116,7 +116,7 @@
                     <label class="order-item"><input type="checkbox" name="item" value="blueberry"><span>Blueberry</span><span class="price">₱60</span></label>
                     <label class="order-item"><input type="checkbox" name="item" value="lychee"><span>Lychee</span><span class="price">₱60</span></label>
 
-                    <h4 class="order-group">ADDONS</h4>
+                    <h4 class="order-group">DRINK ADD-ONS</h4>
 
                     <label class="order-item"><input type="checkbox" name="item" value="1"><span>Espresso Shot</span><span class="price">₱30</span></label>
                     <label class="order-item"><input type="checkbox" name="item" value="2"><span>Cold Foam</span><span class="price">₱30</span></label>
@@ -145,7 +145,7 @@
                     <label class="order-item"><input type="checkbox" name="item" value="ensaymada"><span>Ensaymada</span><span class="price">₱40</span></label>
                     <label class="order-item"><input type="checkbox" name="item" value="cookie"><span>Cookie</span><span class="price">₱40</span></label>
 
-                    <h4 class="order-group">ADDONS</h4>
+                    <h4 class="order-group">FOOD ADD-ONS</h4>
 
                     <label class="order-item"><input type="checkbox" name="item" value="donut"><span>Ketchup</span><span class="price">₱30</span></label>
                     <label class="order-item"><input type="checkbox" name="item" value="brownie"><span>White Sauce</span><span class="price">₱30</span></label>
@@ -155,24 +155,7 @@
                 </div>
 
                 <div class="order-box">
-                    <h3>Order Summary</h3>
-
-                    <div class="summary-breakdown">
-                        <div class="summary-row">
-                            <span>SUBTOTAL:</span>
-                            <span id="subtotal-price">₱0</span>
-                        </div>
-
-                        <div class="summary-row" id="discount-summary-row" hidden>
-                            <span>SENIOR CITIZEN DISCOUNT (20%):</span>
-                            <span id="discount-price">−₱0</span>
-                        </div>
-
-                        <div class="summary-total">
-                            <span>TOTAL PRICE:</span>
-                            <span id="total-price">₱0</span>
-                        </div>
-                    </div>
+                    <h3>Customer Details</h3>
 
                     <form class="order-form" action="">
                         <label>
@@ -256,6 +239,29 @@
 
                         <button type="submit">Place Order</button>
                     </form>
+                </div>
+
+                <div class="order-box live-receipt-box">
+                    <h3>Your Order</h3>
+
+                    <ul id="live-order-items" class="live-order-items"></ul>
+
+                    <div class="summary-breakdown">
+                        <div class="summary-row">
+                            <span>SUBTOTAL:</span>
+                            <span id="subtotal-price">₱0</span>
+                        </div>
+
+                        <div class="summary-row" id="discount-summary-row" hidden>
+                            <span>SENIOR CITIZEN DISCOUNT (20%):</span>
+                            <span id="discount-price">−₱0</span>
+                        </div>
+
+                        <div class="summary-total">
+                            <span>TOTAL PRICE:</span>
+                            <span id="total-price">₱0</span>
+                        </div>
+                    </div>
                 </div>
 
             </div>
