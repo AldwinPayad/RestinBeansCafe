@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +45,6 @@
             margin-bottom: 2rem;
         }
 
-        /* Main contact container */
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -55,7 +55,6 @@
             padding: 2.5rem;
         }
 
-        /* Existing contact information */
         .contact-info {
             display: flex;
             flex-direction: column;
@@ -116,7 +115,6 @@
             margin-top: 0;
         }
 
-        /* Contact form */
         .contact-form-container {
             background: #f0d4bd;
             border: 2px solid black;
@@ -185,6 +183,14 @@
             background: #aa7a52;
         }
 
+        .form-status {
+            margin: 0;
+            text-align: center;
+            line-height: 1.6;
+            color: #70452d;
+            font-size: 0.9rem;
+        }
+
         @media (max-width: 800px) {
             .contact-container {
                 grid-template-columns: 1fr;
@@ -247,7 +253,6 @@
 
             <div class="contact-container">
 
-                <!-- Left side: Existing contact information -->
                 <div class="contact-info">
 
                     <div class="contact-grid">
@@ -263,7 +268,7 @@
                             <h3>Email Address</h3>
                             <p>
                                 <a href="mailto:alkalinebenniepayer@gmail.com">
-                                    RestInBeans@gmail.com
+                                    alkalinebenniepayer@gmail.com
                                 </a>
                             </p>
                         </div>
@@ -271,7 +276,10 @@
                         <div class="contact-card">
                             <h3>Our Location</h3>
                             <p>
-                                1239 Solis St, Tondo, Manila, Metro Manila
+                                <a href="https://maps.app.goo.gl/7FL7CKFWvZQ9zd1f7"
+                                target="_blank" rel="noopener noreferrer">
+                                    1239 Solis St, Tondo, Manila, Metro Manila
+                                </a>
                             </p>
                         </div>
 
@@ -299,7 +307,6 @@
 
                 </div>
 
-                <!-- Right side: Contact form -->
                 <div class="contact-form-container">
                     <h2>Send Us a Message</h2>
 
@@ -338,6 +345,8 @@
                         </div>
 
                         <button type="submit">Submit</button>
+
+                        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
 
                     </form>
                 </div>
@@ -380,7 +389,7 @@
             <div class="footer_section2">
                 <h1 class="footer_heading">Menu</h1>
                 <ul class="footer_list">
-                    <li><a href="RestinBeansCafe-menu/menu.html#">Drinks</a></li>
+                    <li><a href="RestinBeansCafe-menu/menu.html#espresso">Drinks</a></li>
                     <li><a href="RestinBeansCafe-menu/menu.html#snacks">Snacks</a></li>
                     <li><a href="RestinBeansCafe-menu/menu.html#pastries">Pastries</a></li>
                     <li><a href="RestinBeansCafe-menu/menu.html#samyang">Samyang</a></li>
@@ -390,27 +399,38 @@
             <div class="footer_section2">
                 <h1 class="footer_heading">Contacts</h1>
                 <ul class="footer_list">
-                    <li>Contact Number: 09515422593</li>
-                    <li>Email: RestInBeans@gmail.com</li>
-                    <li>Address: 1239 Solis St, Tondo, Manila, Metro Manila</li>
+                    <li><a href="tel:09515422593">Contact Number: 0951 542 2593</a></li>
+                    <li><a href="mailto:alkalinebenniepayer@gmail.com">Email: alkalinebenniepayer@gmail.com</a></li>
+                    <li>
+                        <a href="https://maps.app.goo.gl/7FL7CKFWvZQ9zd1f7"
+                        target="_blank" rel="noopener noreferrer">
+                            Address: 1239 Solis St, Tondo, Manila, Metro Manila
+                        </a>
+                    </li>
                 </ul>
             </div>
 
         </div>
     </footer>
-<script>
+
+    <script>
         const contactForm = document.querySelector(".contact-form");
+        const formStatus = document.querySelector("#form-status");
 
         contactForm.addEventListener("submit", function (event) {
-            event.preventDefault(); 
+            event.preventDefault();
 
             const formData = new FormData(contactForm);
             const submission = Object.fromEntries(formData.entries());
 
             console.log("Contact form submission:", submission);
 
-            contactForm.reset(); // clear the form after submitting
+            formStatus.textContent =
+                "Your message was recorded for this website demonstration. It has not been sent to the café.";
+
+            contactForm.reset();
         });
     </script>
+
 </body>
 </html>
