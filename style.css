@@ -107,7 +107,6 @@ img, video {
 
 .banner {
     display: grid;
-    grid-template-columns: 3.5fr 1fr;
     margin: 1.5em;
     margin-bottom: 2rem;
     border: 4px solid black;
@@ -157,23 +156,6 @@ img, video {
   object-position: center;
   display: block;
 }
-
-
-.banner_image {
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    min-width: 0;
-}
-
-.banner_image img {
-  width: 100%;
-  height: clamp(20rem, 50vw, 45rem);
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
 /*best seller*/
 
 /* BEST SELLERS */
