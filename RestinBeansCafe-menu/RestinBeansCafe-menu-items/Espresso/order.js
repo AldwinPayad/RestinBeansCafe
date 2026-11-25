@@ -12,7 +12,7 @@ const itemCheckboxes = document.querySelectorAll(
 const quantities = new Map();
 
 itemCheckboxes.forEach(function (checkbox) {
-    quantities.set(checkbox, 1);
+    quantities.set(checkbox, checkbox.checked ? 1 : 0);
 });
 
 const pickedFromMenu = new URLSearchParams(window.location.search).get("items");
@@ -183,6 +183,14 @@ function organizeCategories() {
             createQuantityControls(checkbox);
 
             checkbox.addEventListener("change", function () {
+                if (checkbox.checked) {
+                    if (quantities.get(checkbox) === 0) {
+                        quantities.set(checkbox, 1);
+                    }
+                } else {
+                    quantities.set(checkbox, 0);
+                }
+
                 updateQuantityDisplay(checkbox);
                 updateTotal();
             });
